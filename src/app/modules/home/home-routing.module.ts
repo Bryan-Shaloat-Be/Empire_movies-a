@@ -9,11 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'category',
-    loadChildren:() => import(`@modules/favorites/favorites.module`).then(m => m.FavoritesModule)
+    loadChildren:() => import(`@modules/category/category.module`).then(m => m.CategoryModule)
   },
   {
     path: 'movies',
-    loadChildren:() => import(`@modules/favorites/favorites.module`).then(m => m.FavoritesModule)
+    loadChildren:() => import(`@modules/movies/movies.module`).then(m => m.MoviesModule)
   }
 ];
 

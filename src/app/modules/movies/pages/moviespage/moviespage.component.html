@@ -1,1 +1,7 @@
-<p>moviespage works!</p>
+<div class="bg-orange-400 m-4">
+    <p class="p-2 text-center">moviespage works!</p>
+</div>
+<!-- Section random movies or available movies of the site-->
+<app-section-movies [datas]="mockmovies" [title]="'Todas nuestras peliculas'"></app-section-movies>
+<!-- Section popular movies -->
+<app-section-movies [title]="'Peliculas mas populares'"></app-section-movies>

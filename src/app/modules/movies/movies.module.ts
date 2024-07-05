@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviespageComponent } from './pages/moviespage/moviespage.component';
+import { share } from 'rxjs';
+import { SharedModule } from '@shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +13,8 @@ import { MoviespageComponent } from './pages/moviespage/moviespage.component';
   ],
   imports: [
     CommonModule,
-    MoviesRoutingModule
+    MoviesRoutingModule,
+    SharedModule
   ]
 })
 export class MoviesModule { }
