@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        sans: ['Roboto', 'ui-sans-serif', 'system-ui'],
+        BaskervvilleSC: ['Baskervville SC', 'serif'],
+      },
+    },
   },
   plugins: [],
 }

@@ -9,10 +9,17 @@ import { movieslist } from '@cores/models/movies.model';
 })
 export class MoviespageComponent implements OnInit{
   mockmovies: Array<movieslist> = [];
+  mockmoviesf: Array<movieslist> = [];
   constructor(){}
 
   ngOnInit(): void {
     const {datas} : any = (data as any).default
     this.mockmovies = datas
+
+    for (let i = 0; i < datas.length; i++) {
+      if (datas[i].genre === "action"){  //Filtro para los generos o para lo mas popular
+        this.mockmoviesf.push(datas[i]);
+      }
+    }
   }
 }
