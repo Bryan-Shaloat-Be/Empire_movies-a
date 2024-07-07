@@ -4,6 +4,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SectionMoviesComponent } from './components/section-movies/section-movies.component';
 import { CardMovieComponent } from './components/card-movie/card-movie.component';
+import { RecommendationMoviesComponent } from './components/recommendation-movies/recommendation-movies.component';
+import { HistoryViewComponent } from './components/history-view/history-view.component';
 
 
 
@@ -12,7 +14,9 @@ import { CardMovieComponent } from './components/card-movie/card-movie.component
     NavbarComponent,
     FooterComponent,
     SectionMoviesComponent,
-    CardMovieComponent
+    CardMovieComponent,
+    RecommendationMoviesComponent,
+    HistoryViewComponent
   ],
   imports: [
     CommonModule
@@ -20,7 +24,9 @@ import { CardMovieComponent } from './components/card-movie/card-movie.component
   exports:[
     NavbarComponent,
     SectionMoviesComponent,
-    CardMovieComponent
+    CardMovieComponent,
+    RecommendationMoviesComponent,
+    HistoryViewComponent
   ]
 })
 export class SharedModule { }
