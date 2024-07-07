@@ -21,11 +21,11 @@ export class NavbarComponent implements OnInit{
     this.link_menu.defaultOptions = [
       {
         name: "Inicio",
-        router:['/']
+        router:['/','movies']
       },
       {
         name: "Categorias",
-        router:['/']
+        router:['/','category']
       },
     ] 
   }

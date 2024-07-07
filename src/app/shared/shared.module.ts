@@ -6,6 +6,7 @@ import { SectionMoviesComponent } from './components/section-movies/section-movi
 import { CardMovieComponent } from './components/card-movie/card-movie.component';
 import { RecommendationMoviesComponent } from './components/recommendation-movies/recommendation-movies.component';
 import { HistoryViewComponent } from './components/history-view/history-view.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -19,7 +20,8 @@ import { HistoryViewComponent } from './components/history-view/history-view.com
     HistoryViewComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports:[
     NavbarComponent,
