@@ -1,7 +1,7 @@
 <nav class="bg-[#010101] fixed top-0 right-0 left-0">
     <div class="w-full flex xl:gap-x-64 place-content-center justify-between">
         <div class="w-full text-center place-content-center lg:hidden">
-            <button (click)="onclickmenu()" class="text-slate-50 font-BaskervvilleSC ">
+            <button (click)="onclickmenu()" class="text-slate-50 ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" 
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" 
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
@@ -12,12 +12,22 @@
                 </svg>
             </button>
         </div>
-        <div class="flex gap-x-16 place-content-center w-full my-2">
+        <div class="flex gap-x-16 place-content-center w-full my-2 " >
             <img class="h-[60px]" src="assets/Logo/logo_4.png">
-            <div class="hidden lg:flex gap-x-12">
-                <div [routerLink]="item.router" *ngFor="let item of link_menu.defaultOptions" 
-                class="text-slate-50 w-full text-center place-content-center font-BaskervvilleSC text-xl cursor-pointer hover:bg-orange-500 px-4">
+            <div class=" hidden lg:flex gap-x-12 group relative"*ngFor="let item of link_menu.defaultOptions">
+                <div [routerLink]="item.router" class="text-slate-50 w-full text-center font-BaskervvilleSC text-xl cursor-pointer hover:bg-orange-500 px-4 place-content-center"
+                    [ngClass]="{'clase-especial': item.name === 'Categorias'}">
                     {{item.name}}
+                    <div *ngIf="item.name === 'Categorias'" class="absolute hidden group-hover:block bg-[#010101] text-white">
+                        <div class="grid grid-cols-3 w-[450px] ">
+                            <a (click)="filtercategory('accion')" class="block px-4 py-2 hover:bg-orange-500">Accion</a>
+                            <a (click)="filtercategory('comedia')" class="block px-4 py-2 hover:bg-orange-500">Comedia</a>
+                            <a (click)="filtercategory('terror')" class="block px-4 py-2 hover:bg-orange-500">Terror</a>
+                            <a (click)="filtercategory('drama')" class="block px-4 py-2 hover:bg-orange-500">Drama</a>
+                            <a (click)="filtercategory('aventura')" class="block px-4 py-2 hover:bg-orange-500">Aventura</a>
+                            <a (click)="filtercategory('documental')" class="block px-4 py-2 hover:bg-orange-500">Documental</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,7 +59,7 @@
     <div [ngClass]="{'opacity-100 pointer-events-auto': menu, 'opacity-0 pointer-events-none': !menu}" class="bg-gray-600/50 min-h-screen w-full 
     fixed top-0 left-0 right-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out" (click)="onclickmenu()">
     </div>
-    <div [ngClass]="{'translate-x-0': menu, '-translate-x-full': !menu}" class="bg-[#010101] min-h-screen w-60 fixed top-0 left-0 md:w-[300px] 
+    <div [ngClass]="{'translate-x-0': menu, '-translate-x-full': !menu}" class="bg-[#010101] min-h-screen w-[310px] fixed top-0 left-0 md:w-[400px] 
     transition-transform duration-300 ease-in-out">
         <button (click)="onclickmenu()" class="m-4 mb-6">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
@@ -69,6 +79,16 @@
             [routerLink]="item.router" *ngFor="let item of link_menu.defaultOptions"> 
                 {{item.name}} 
             </button>
+            <div>
+                <div class="grid grid-cols-2 font-BaskervvilleSC text-lg">
+                    <a (click)="filtercategory('accion');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Accion</a>
+                    <a (click)="filtercategory('comedia');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Comedia</a>
+                    <a (click)="filtercategory('terror');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Terror</a>
+                    <a (click)="filtercategory('drama');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Drama</a>
+                    <a (click)="filtercategory('aventura');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Aventura</a>
+                    <a (click)="filtercategory('documental');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Documental</a>
+                </div>
+            </div>
             <button class="bg-[#121213a7] font-BaskervvilleSC hover:bg-orange-500 cursor-pointer p-2">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="32"  height="32"  viewBox="0 0 24 24"  
                     fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  

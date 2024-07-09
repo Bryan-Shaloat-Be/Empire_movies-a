@@ -4,7 +4,8 @@
             "id": 1,
             "title": "Intensamente 2",
             "year": 2010,
-            "genre": "comedy",
+            "genre": "comedia",
+            "time": "104min",
             "description": "Una familia con el reto de arreglar una casa",
             "img": "assets/img/intensamente_2.jpg"
         },
@@ -12,7 +13,8 @@
             "id": 2,
             "title": "Transformers",
             "year": 2024,
-            "genre": "action",
+            "genre": "accion",
+            "time": "104min",
             "description": "Emociones en conflicto",
             "img": "assets/img/transformers.jpg"
         },
@@ -20,7 +22,8 @@
             "id": 3,
             "title": "Una casa patas arriba",
             "year": 2024,
-            "genre": "comedy",
+            "genre": "comedia",
+            "time": "104min",
             "description": "Emociones en conflicto",
             "img": "assets/img/casa_patas_arriba.jpg"
         }
@@ -29,7 +32,8 @@
             "id": 4,
             "title": "Bad Boys - For life",
             "year": 2024,
-            "genre": "action",
+            "genre": "accion",
+            "time": "104min",
             "description": "chicos malos",
             "img": "assets/img/Bad_Boys.jpg"
         }
@@ -38,18 +42,70 @@
             "id": 5,
             "title": "Demons Slayer",
             "year": 2024,
-            "genre": "action",
+            "genre": "accion",
+            "time": "104min",
             "description": "chicos malos",
             "img": "assets/img/kimetsu.jpg"
         }
         ,
         {
-            "id": 5,
-            "title": "Demons Slayer",
+            "id": 6,
+            "title": "Rapidos y furiosos",
             "year": 2024,
-            "genre": "comedy",
+            "genre": "accion",
+            "time": "104min",
             "description": "chicos malos",
-            "img": "assets/img/kimetsu.jpg"
+            "img": "assets/img/rapidos_furiosos.jpg"
+        }
+        ,
+        {
+            "id": 7,
+            "title": "Little Man",
+            "year": 2024,
+            "genre": "comedia",
+            "time": "104min",
+            "description": "chicos malos",
+            "img": "assets/img/little_man.jpg"
+        }
+        ,
+        {
+            "id": 8,
+            "title": "Donde estan las rubias",
+            "year": 2024,
+            "genre": "comedia",
+            "time": "104min",
+            "description": "chicos malos",
+            "img": "assets/img/donde_rubias.webp"
+        }
+        ,
+        {
+            "id": 9,
+            "title": "Wrong missy",
+            "year": 2024,
+            "genre": "comedia",
+            "time": "104min",
+            "description": "chicos malos",
+            "img": "assets/img/wrong_missy.jpg"
+        }
+        ,
+        {
+            "id": 10,
+            "title": "chuky",
+            "year": 2024,
+            "genre": "terror",
+            "time": "104min",
+            "description": "chicos malos",
+            "img": "assets/img/chuky.jpg"
+        }
+        ,
+        {
+            "id": 12,
+            "title": "El conjuro",
+            "year": 2024,
+            "genre": "terror",
+            "time": "104min",
+            "description": "chicos malos",
+            "img": "assets/img/conjuro.webp"
         }
     ]
 }

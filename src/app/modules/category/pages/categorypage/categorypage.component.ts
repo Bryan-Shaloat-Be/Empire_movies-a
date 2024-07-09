@@ -1,10 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import * as data from '../../../../data/movies.json'
+import { movieslist } from '@cores/models/movies.model';
+import { FiltersService } from '@modules/category/services/filters.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-categorypage',
   templateUrl: './categorypage.component.html',
-  styleUrl: './categorypage.component.css'
+  styleUrls: ['./categorypage.component.css']
 })
-export class CategorypageComponent {
+export class CategorypageComponent implements OnInit, OnDestroy {
+  mockmovies: Array<movieslist> = [];
+  mockmoviesf: Array<movieslist> = [];
+  listObservers$: Subscription[] = [];
+  categorys: string = '';
 
+  constructor(private asfilter: FiltersService) {}
+
+  ngOnInit(): void {
+    this.mockmovies = (data as any).default.datas; 
+
+    this.asfilter.callcategory.subscribe(category => {
+      if (category) {
+        this.filtersmoviescategory(category);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.listObservers$.forEach(u => u.unsubscribe());
+  }
+
+  filtersmoviescategory(category: string): void {
+    this.mockmoviesf = this.mockmovies.filter(title => title.genre === category);
+    this.categorys = category;
+  }
 }

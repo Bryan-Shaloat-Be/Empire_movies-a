@@ -3,6 +3,7 @@ export interface movieslist {
     title: string;
     year: number;
     genre: string;
+    time: string,
     description: string;
     img: string;
 
