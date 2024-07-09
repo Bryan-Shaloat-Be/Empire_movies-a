@@ -12,7 +12,7 @@
                 </svg>
             </button>
         </div>
-        <div class="flex gap-x-16 place-content-center w-full my-2 " >
+        <div class="flex gap-x-6 place-content-center w-full my-2 " >
             <img class="h-[60px]" src="assets/Logo/logo_4.png">
             <div class=" hidden lg:flex gap-x-12 group relative"*ngFor="let item of link_menu.defaultOptions">
                 <div [routerLink]="item.router" class="text-slate-50 w-full text-center font-BaskervvilleSC text-xl cursor-pointer hover:bg-orange-500 px-4 place-content-center"
@@ -77,18 +77,18 @@
         <div class="grid gap-y-4 text-center p-4 text-slate-50">
             <button (click)="onclickmenu()" class="bg-[#121213a7] font-BaskervvilleSC hover:bg-orange-500 cursor-pointer p-2 text-2xl" 
             [routerLink]="item.router" *ngFor="let item of link_menu.defaultOptions"> 
-                {{item.name}} 
-            </button>
-            <div>
-                <div class="grid grid-cols-2 font-BaskervvilleSC text-lg">
-                    <a (click)="filtercategory('accion');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Accion</a>
-                    <a (click)="filtercategory('comedia');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Comedia</a>
-                    <a (click)="filtercategory('terror');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Terror</a>
-                    <a (click)="filtercategory('drama');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Drama</a>
-                    <a (click)="filtercategory('aventura');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Aventura</a>
-                    <a (click)="filtercategory('documental');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Documental</a>
+                {{item.name}}
+                <div *ngIf="item.name === 'Categorias'" class="cursor-not-allowed hover:bg-[#010101] py-4" (click)="onclickmenu()">
+                    <div class="grid grid-cols-2 font-BaskervvilleSC text-lg">  <!-- Falta reajustar el diseno de los <a> para mejorar la exp del usuario -->
+                        <a (click)="filtercategory('accion');onclickmenu()" class="bg-[#272729c3] block px-4 py-2 hover:bg-orange-500">Accion</a>
+                        <a (click)="filtercategory('comedia');onclickmenu()" class="block px-4 py-2 hover:bg-orange-500">Comedia</a>
+                        <a (click)="filtercategory('terror');onclickmenu()" class=" block px-4 py-2 hover:bg-orange-500">Terror</a>
+                        <a (click)="filtercategory('drama');onclickmenu()" class="bg-[#272729c3] block px-4 py-2 hover:bg-orange-500">Drama</a>
+                        <a (click)="filtercategory('aventura');onclickmenu()" class="bg-[#272729c3] block px-4 py-2 hover:bg-orange-500">Aventura</a>
+                        <a (click)="filtercategory('documental');onclickmenu()" class=" block px-4 py-2 hover:bg-orange-500">Documental</a>
+                    </div>
                 </div>
-            </div>
+            </button>
             <button class="bg-[#121213a7] font-BaskervvilleSC hover:bg-orange-500 cursor-pointer p-2">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="32"  height="32"  viewBox="0 0 24 24"  
                     fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  

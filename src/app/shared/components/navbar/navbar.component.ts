@@ -33,6 +33,11 @@ export class NavbarComponent implements OnInit {
       {
         name: "Categorias",
       }
+      ,
+      {
+        name: "favoritos",
+        router: ['/','favorites']
+      }
     ];
     this.asfilter.callcategory.subscribe(category => {
       if (category) {

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from '@modules/home/page/homepage/homepage.component';
 
 const routes: Routes = [
+
   {
     path: 'auth',
     loadChildren:() => import(`./modules/auth/auth.module`).then(m => m.AuthModule)
@@ -11,7 +12,7 @@ const routes: Routes = [
     path: '',
     component:HomepageComponent,
     loadChildren:() => import(`./modules/home/home.module`).then(m => m.HomeModule)
-  }
+  },
 ];
 
 @NgModule({
