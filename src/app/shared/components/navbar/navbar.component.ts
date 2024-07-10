@@ -18,13 +18,17 @@ export class NavbarComponent implements OnInit {
 
   onclickmenu() {
     this.menu = !this.menu;
+    console.log('Menu state changed to:', this.menu);
   }
 
   filtercategory(category: string) {
     this.asfilter.setCategory(category);
+    this.router.navigate(['/category']);
   }
 
   ngOnInit(): void {
+    console.log('NavbarComponent initialized with menu state:', this.menu);
+    this.menu = false
     this.link_menu.defaultOptions = [
       {
         name: "Inicio",
@@ -40,9 +44,6 @@ export class NavbarComponent implements OnInit {
       }
     ];
     this.asfilter.callcategory.subscribe(category => {
-      if (category) {
-        this.router.navigate(['/category']);
-      }
     });
   }
 }
