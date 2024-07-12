@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Renderer2 } from '@angular/core';
 import { movieslist } from '@cores/models/movies.model';
 
 @Component({
@@ -7,5 +7,24 @@ import { movieslist } from '@cores/models/movies.model';
   styleUrl: './card-movie.component.css'
 })
 export class CardMovieComponent {
-  @Input() movie!: movieslist;
+  @Input() movie: movieslist = <any> [];
+  @Input() id!: movieslist;
+  @Input() title!: movieslist;
+  @Input() description!: movieslist;
+  @Input() genre!: movieslist;
+  @Input() time!: movieslist;
+  @Input() img!: movieslist;
+
+  menu: boolean = false;
+
+  constructor(private renderer: Renderer2){}
+
+  onclickmenu() {
+    this.menu = !this.menu;
+    if (this.menu) {
+      this.renderer.addClass(document.body, 'no-scroll');
+    } else {
+      this.renderer.removeClass(document.body, 'no-scroll');
+    }
+  }
 }

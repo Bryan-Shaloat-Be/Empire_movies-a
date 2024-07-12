@@ -23,7 +23,12 @@ export class AuthpageComponent implements OnInit{
   }
 
   navigatedtohome(){
-    
-    this.router.navigate(['/movies'])
+    const email = this.formlogingroup.get('email')?.value;
+    const password = this.formlogingroup.get('password')?.value;  // Toma de valores del formulario
+    if(email !== ''){
+      this.router.navigate(['/movies'])  //ligera validacion de pruebas
+    }else{
+      alert('No ingreso su usuario')
+    } 
   }
 }
