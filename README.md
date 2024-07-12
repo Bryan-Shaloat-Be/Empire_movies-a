@@ -6,6 +6,14 @@ Project created for viewing live movies with functions such as: Login, movie sea
 - [Bryan Shaloat Be Barragan Pulido](https://github.com/Bryan-Shaloat-Be)
 
 
+## How did I do the project?
+
+
+The project was created following an angular course. I called the project Empire Movies to give it a theme. The entire design was centered around that theme. Logo, font and colors referring to the theme were placed.
+
+We thought about the super basic requirements of an entertainment hub to give the best experience to the user.
+
+
 ## Technical requirements
 
 The project was built with Angular, typescript, HTML5, CSS3 and nodejs
@@ -40,13 +48,56 @@ ng serve
 
 ## Proyect images
 
-![App Screenshot](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Inicio-Empire-movies.PNG)
+Descktop
+![Home image](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Inicio-Empire-movies.PNG)
 
-## Color Reference
+- [Category section ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Categorias_peliculas_Empire-movies.PNG)
 
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
-| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
-| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
-| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
+- [Card movie Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Tarjeta-Pelicula-Empire-Movies.PNG)
+
+- [Login Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Login-Empire-Movies.PNG)
+
+- [Menu-category Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Categorias-menu-Empire-movies.PNG)
+
+Movil-Resposive
+
+- [Home Movil-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Inicio-Resposivo-Empire-Movies.PNG)
+
+- [Menu Movil-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Menu-Responsivo-Empire-Movies.PNG)
+
+- [Login Movil-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Login-resposivo-Empire-movies.PNG)
+
+- [Card movie Movile-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/tarjeta-resposivo-pelicula.PNG)
+
+
+## Test images
+
+- [Test](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/Testing.PNG)
+
+- [Code Coverage](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/Code-Coverage-Testing.PNG)
+
+## Sprint Review
+
+| What did I do right? | what I didn't do well| What can i do differently? 
+|----|-------------------|------|
+| Implementation with Angular came out correctly| Problems whit design and css |Improve ui/ux. improve responsive
+
+## Build
+
+Run to build the project. The build artifacts will be stored in the dist/ directory.
+```bash
+ng build
+```
+
+## Running unit tests
+
+Run to execute the unit tests via Karma.
+```bash
+ng test
+```
+
+
+## Feedback
+
+
+Any constructive feedback will be welcomed and appreciated. send it to me at the following email bryanbarraganpulido@gmail.com
