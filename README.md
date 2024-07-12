@@ -1,27 +1,52 @@
-# EmpireMoviesA
+# Empire Movies 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+Project created for viewing live movies with functions such as: Login, movie search and filters, detailed information about movies, space for favorites and more!
+## Authors
 
-## Development server
+- [Bryan Shaloat Be Barragan Pulido](https://github.com/Bryan-Shaloat-Be)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Technical requirements
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The project was built with Angular, typescript, HTML5, CSS3 and nodejs
 
-## Build
+- [Angular -- version: 18.0.6](https://angular.dev/)
+- [Nodejs -- version: 20.14.6](https://nodejs.org/en)
+- [Typescript -- version: 5.4.5](https://www.typescriptlang.org/)
+- [Rxjs -- version: 7.8.1](https://rxjs.dev/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+External libraries
 
-## Running unit tests
+- [Tailwind css -- version: 3.4.4](https://tailwindcss.com/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation the project
 
-## Running end-to-end tests
+ 
+1. You need to clone the proyect (repository)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Navigate on you terminal to the folder proyect
+```bash
+cd empire-movies-a
+```
+3. Install all you need 
 
-## Further help
+```bash
+npm install
+```
+4. Run de proyect
+```bash
+ng serve
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Proyect images
+
+![App Screenshot](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Inicio-Empire-movies.PNG)
+
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
+| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
+| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
+| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
