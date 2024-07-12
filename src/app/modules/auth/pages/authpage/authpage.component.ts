@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @Component({
   selector: 'app-authpage',
   templateUrl: './authpage.component.html',
@@ -12,13 +13,12 @@ export class AuthpageComponent implements OnInit{
 
   formlogingroup : FormGroup = new FormGroup({});
 
-  constructor(private router: Router){}
+  constructor(public router: Router){}
 
   ngOnInit(): void {
     this.formlogingroup = new FormGroup({
       email: new FormControl(''),
-      password: new FormControl('')
-
+      password: new FormControl(''),
     })
   }
 

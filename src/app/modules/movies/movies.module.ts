@@ -5,6 +5,7 @@ import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviespageComponent } from './pages/moviespage/moviespage.component';
 import { share } from 'rxjs';
 import { SharedModule } from '@shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import { SharedModule } from '@shared/shared.module';
   imports: [
     CommonModule,
     MoviesRoutingModule,
-    SharedModule
+    SharedModule,
+    RouterModule
+
   ]
 })
 export class MoviesModule { }
