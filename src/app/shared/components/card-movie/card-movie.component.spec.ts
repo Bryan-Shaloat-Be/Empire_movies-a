@@ -20,4 +20,10 @@ describe('CardMovieComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('verificacion verdadera del cambio boolean para el despliegue de la tarjeta de pelicula',()=>{
+    const menu: boolean = true
+    component.onclickmenu()
+    expect(component.menu).toEqual(menu)
+  });
 });

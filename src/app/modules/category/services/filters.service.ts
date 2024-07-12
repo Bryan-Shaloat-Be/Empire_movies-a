@@ -11,6 +11,6 @@ export class FiltersService {
   callcategory = this.categorySubject.asObservable();
 
   setCategory(category: string) {
-    this.categorySubject.next(category);
+    this.categorySubject.next(category);  // colocar el nuevo valor de la categoria 
   }
 }

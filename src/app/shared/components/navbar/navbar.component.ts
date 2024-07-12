@@ -10,19 +10,18 @@ import { FiltersService } from '@modules/category/services/filters.service';
 export class NavbarComponent implements OnInit {
   menu: boolean = false;
 
-  constructor(private router: Router, private asfilter: FiltersService) {}
+  constructor(public router: Router, private asfilter: FiltersService) {}  //recordar cambiar a privado los routers 
 
   link_menu: {
     defaultOptions: Array<any>, accesslink: Array<any>
   } = { defaultOptions: [], accesslink: [] }
 
   onclickmenu() {
-    this.menu = !this.menu;
-    console.log('Menu state changed to:', this.menu);
+    this.menu = !this.menu;  //cambio en la variable para desplegar un menu
   }
 
   filtercategory(category: string) {
-    this.asfilter.setCategory(category);
+    this.asfilter.setCategory(category);  //Utilizar un servicio reactivo para escuchar los cambios de la categorias y filtrar
     this.router.navigate(['/category']);
   }
 

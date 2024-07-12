@@ -36,7 +36,7 @@ export class CategorypageComponent implements OnInit, OnDestroy {
   }
 
   filtersmoviescategory(category: string): void {
-    this.mockmoviesf = this.mockmovies.filter(catego => catego.genre === category);
+    this.mockmoviesf = this.mockmovies.filter(catego => catego.genre === category);  //Filtrar las peliculas por categorias 
     this.categorys = category;
    
   }

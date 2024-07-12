@@ -22,7 +22,7 @@ export class CardMovieComponent {
   onclickmenu() {
     this.menu = !this.menu;
     if (this.menu) {
-      this.renderer.addClass(document.body, 'no-scroll');
+      this.renderer.addClass(document.body, 'no-scroll');  // Funcion para desplegar la tarjeta de la pelicula y desabilitar un scroll 
     } else {
       this.renderer.removeClass(document.body, 'no-scroll');
     }

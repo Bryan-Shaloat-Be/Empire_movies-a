@@ -18,7 +18,6 @@ describe('CategorypageComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     component.ngOnInit();
-    component.mockmovies = (data as any).default.datas;
     
   });
 
@@ -32,7 +31,8 @@ describe('CategorypageComponent', () => {
 
   it('verificacion de la funcion de filtro de categorias',() =>{
     const category: string = 'accion'
-    component.filtersmoviescategory(category);
-    expect(component.mockmoviesf).toBeGreaterThan(0)
+    
+    component.filtersmoviescategory(category); // buscar verficar la filtracion de datos 
+    expect(component.mockmoviesf.length).toBeGreaterThan(3) // Verificacion de filtros correcta
   })
 });
