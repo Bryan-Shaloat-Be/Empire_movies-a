@@ -16,7 +16,8 @@ export class MoviespageComponent implements OnInit{
   constructor(){}
 
   ngOnInit(): void {
-    const {datas} : any = (data as any).default
+    const {datas} : any = (data as any).default // lectura de datos 
+    
     this.mockmovies = datas
   }
 }
