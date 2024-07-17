@@ -100,4 +100,4 @@ ng test
 ## Feedback
 
 
-Any constructive feedback will be welcomed and appreciated. send it to me at the following email bryanbarraganpulido@gmail.com
+Any constructive feedback will be welcomed and appreciated. send it to me at the following email brayanbarraganpulido@gmail.com
