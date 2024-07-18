@@ -91,7 +91,7 @@ ng build
 
 ## Running unit tests
 
-Run to execute the unit tests via Karma.
+Run to execute the unit tests via Karma
 ```bash
 ng test
 ```
