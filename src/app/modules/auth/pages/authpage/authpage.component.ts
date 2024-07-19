@@ -12,8 +12,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class AuthpageComponent implements OnInit{
 
   formlogingroup : FormGroup = new FormGroup({});
+  change_view: boolean = false;
 
   constructor(public router: Router){}
+
+
+  registerView(){
+    this.change_view = !this.change_view
+    console.log(this.change_view);
+  }
+
 
   ngOnInit(): void {
     this.formlogingroup = new FormGroup({

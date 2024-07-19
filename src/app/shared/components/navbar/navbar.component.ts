@@ -17,7 +17,8 @@ export class NavbarComponent implements OnInit {
   } = { defaultOptions: [], accesslink: [] }
 
   onclickmenu() {
-    this.menu = !this.menu;  //cambio en la variable para desplegar un menu
+    this.menu = !this.menu;
+    console.log(this.menu);  //cambio en la variable para desplegar un menu
   }
 
   filtercategory(category: string) {
