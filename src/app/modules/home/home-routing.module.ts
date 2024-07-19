@@ -15,6 +15,16 @@ const routes: Routes = [
     path: 'movies',
     loadChildren:() => import(`@modules/movies/movies.module`).then(m => m.MoviesModule)
   }
+  ,
+  {
+    path: 'history',
+    loadChildren:() => import(`@modules/history/history.module`).then(m => m.HistoryModule)
+  }
+  ,
+  {
+    path: 'series',
+    loadChildren:() => import(`@modules/series/series.module`).then(m => m.SeriesModule)
+  }
 ];
 
 @NgModule({

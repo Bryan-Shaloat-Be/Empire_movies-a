@@ -9,6 +9,7 @@ import { FiltersService } from '@modules/category/services/filters.service';
 })
 export class NavbarComponent implements OnInit {
   menu: boolean = false;
+  isClickable: boolean = true;
 
   constructor(public router: Router, private asfilter: FiltersService) {}  //recordar cambiar a privado los routers 
 
@@ -39,7 +40,21 @@ export class NavbarComponent implements OnInit {
       }
       ,
       {
-        name: "favoritos",
+        name: "Peliculas",
+        router: ['/','movies']
+      },
+      {
+        name: "Series",
+        router: ['/','series']
+      }
+      ,
+      {
+        name: "Historial",
+        router: ['/','history']
+      }
+      ,
+      {
+        name: "Favoritos",
         router: ['/','favorites']
       }
     ];
