@@ -24,7 +24,7 @@
                             <a (click)="filtercategory('aventura')" class="block px-4 py-2 hover:bg-orange-500">Aventura </a>
                             <a (click)="filtercategory('Belicas')" class="block px-4 py-2 hover:bg-orange-500">Belicas </a>
                             <a (click)="filtercategory('Catastrofe')" class="block px-4 py-2 hover:bg-orange-500">Catastrofe </a>
-                            <a (click)="filtercategory('Ciencia ficcion')" class="block px-4 py-2 hover:bg-orange-500">Ciencia ficcion </a>
+                            <a (click)="filtercategory('Ciencia ficcion')" class="block px-4 py-2 hover:bg-orange-500">Ciencia ficcion </a>   <!-- Se puede mejorar solo esta asi de momento -->
                             <a (click)="filtercategory('comedia')" class="block px-4 py-2 hover:bg-orange-500">Comedia </a>
                             <a (click)="filtercategory('Crimen')" class="block px-4 py-2 hover:bg-orange-500">Crimen </a>
                             <a (click)="filtercategory('Deportivas')" class="block px-4 py-2 hover:bg-orange-500">Deportivas </a>
@@ -70,8 +70,8 @@
                     <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-orange-600 dark:hover:text-white">
                         Nombre de usuario
                     </a>
-                    <hr class="border-gray-200 mx-4">
-                    <div *ngFor="let item of link_menu.defaultOptions" class="">
+                    <hr class="border-gray-200 mx-4"> 
+                    <div *ngFor="let item of link_menu.defaultOptions" class=""> <!-- Dropdown de el perfil de usuario -->
                         <a *ngIf="item.name === 'Historial' || item.name === 'Favoritos'" [routerLink]="item.router" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-orange-600 dark:hover:text-white">{{item.name}}</a>
                         <hr *ngIf="item.name === 'Historial' || item.name === 'Favoritos'" class="border-gray-200 mx-4">
                     </div>
@@ -131,7 +131,7 @@
                             <a (click)="filtercategory('documentales')" (click)="onclickmenu()" class="block px-3 py-2 hover:bg-orange-500">Documentales </a>
                             <a (click)="filtercategory('Drama')" (click)="onclickmenu()" class="block px-3 py-2 hover:bg-orange-500">Drama </a>
                             <a (click)="filtercategory('Epicas')" (click)="onclickmenu()" class="block px-3 py-2 hover:bg-orange-500">Epicas </a>
-                            <a (click)="filtercategory('Fantasia')" (click)="onclickmenu()" class="block px-3 py-2 hover:bg-orange-500">Fantasia </a>
+                            <a (click)="filtercategory('Fantasia')" (click)="onclickmenu()" class="block px-3 py-2 hover:bg-orange-500">Fantasia </a>   <!-- Se puede mejorar solo esta asi de momento -->
                             <a (click)="filtercategory('Futurista')" (click)="onclickmenu()" class="block px-3 py-2 hover:bg-orange-500">Futurista</a>
                             <a (click)="filtercategory('Historicas')" (click)="onclickmenu()" class="block px-3 py-2 hover:bg-orange-500">Historicas</a>
                             <a (click)="filtercategory('Musicales')" (click)="onclickmenu()" class="block px-3 py-2 hover:bg-orange-500">Musicales</a>
