@@ -41,7 +41,7 @@ export class AuthpageComponent implements OnInit{
 
 
   registerView(){
-    this.change_view = !this.change_view
+    this.change_view = !this.change_view  //Cambio de vista entre el registro y el inicion de sesion
     console.log(this.change_view);
   }
 
