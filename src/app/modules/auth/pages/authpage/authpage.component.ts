@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import {  FormBuilder,FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '@modules/auth/services/user.service';
@@ -12,8 +12,9 @@ import { UserService } from '@modules/auth/services/user.service';
 })
 export class AuthpageComponent implements OnInit{
 
-  formlogingroup : FormGroup = new FormGroup({});
+  successMessage: string = '';
   change_view: boolean = false;
+  formUserRegister: FormGroup = new FormGroup({});
 
   items_select: Array<any> = [
     {value: 'Accion', viewValue: 'Accion'},
@@ -37,9 +38,8 @@ export class AuthpageComponent implements OnInit{
     {value: 'Suspenso', viewValue: 'Suspenso'},
     {value: 'Terror', viewValue: 'Terror'},
   ]
-  successMessage: string = '';
 
-  constructor(public router: Router, private userService: UserService){}
+  constructor(public router: Router, private userService: UserService, private fr: FormBuilder){}
 
 
   registerView(){
@@ -47,39 +47,25 @@ export class AuthpageComponent implements OnInit{
     console.log(this.change_view);
   }
 
-  registerUser(form: NgForm){ //uso del servicio para registros de usuarios nuevos 
-    const userData = {
-      userName: form.value.userName,
-      mail: form.value.mail,
-      password: form.value.password,
-      preferences: 'action' 
+  registerUser(){ //uso del servicio para registros de usuarios nuevos 
+    if (this.formUserRegister.valid){
+      console.log(this.formUserRegister.value)
+      const userData = this.formUserRegister.value
+      this.userService.registerService(userData).subscribe(response =>{
+        console.log('usuario registrado con exito', response);
+      }, error =>{
+        console.error('Registration error:', error);
+      });
     }
-    this.userService.registerService(userData).subscribe(response =>{
-      console.log('usuario registrado con exito', response);
-    }, error =>{
-      console.error('Registration error:', error);
-    });
-  
     this.successMessage = 'Registro exitoso. Redirigiendo...'; // Mensaje de registro exitoso y recarga de pagina
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000); 
   }
 
   ngOnInit(): void {
-    this.formlogingroup = new FormGroup({
-      email: new FormControl(''),
-      password: new FormControl(''),
-    })
-  }
-
-  navigatedtohome(){  // Login inprovisado 
-    const email = this.formlogingroup.get('email')?.value;
-    const password = this.formlogingroup.get('password')?.value;  // Toma de valores del formulario
-    if(email !== ''){
-      this.router.navigate(['/movies'])  //ligera validacion de pruebas
-    }else{
-      alert('No ingreso su usuario')
-    } 
+      this.formUserRegister = this.fr.group({
+      'userName': new FormControl('', Validators.required),
+      'mail': new FormControl('',[Validators.required, Validators.email]), // Grupo de formulario con validaciones para el registro de usuarios 
+      'password': new FormControl('',Validators.required),
+      'preferences': new FormControl('', Validators.required)
+    });
   }
 }
