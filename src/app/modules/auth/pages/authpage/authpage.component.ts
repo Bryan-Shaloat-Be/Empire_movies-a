@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '@modules/auth/services/user.service';
 
 
 @Component({
@@ -36,15 +37,34 @@ export class AuthpageComponent implements OnInit{
     {value: 'Suspenso', viewValue: 'Suspenso'},
     {value: 'Terror', viewValue: 'Terror'},
   ]
+  successMessage: string = '';
 
-  constructor(public router: Router){}
+  constructor(public router: Router, private userService: UserService){}
 
 
   registerView(){
-    this.change_view = !this.change_view  //Cambio de vista entre el registro y el inicion de sesion
+    this.change_view = !this.change_view  //Cambio de vista entre el registro y el inicio de sesion
     console.log(this.change_view);
   }
 
+  registerUser(form: NgForm){ //uso del servicio para registros de usuarios nuevos 
+    const userData = {
+      userName: form.value.userName,
+      mail: form.value.mail,
+      password: form.value.password,
+      preferences: 'action' 
+    }
+    this.userService.registerService(userData).subscribe(response =>{
+      console.log('usuario registrado con exito', response);
+    }, error =>{
+      console.error('Registration error:', error);
+    });
+  
+    this.successMessage = 'Registro exitoso. Redirigiendo...'; // Mensaje de registro exitoso y recarga de pagina
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000); 
+  }
 
   ngOnInit(): void {
     this.formlogingroup = new FormGroup({
@@ -53,7 +73,7 @@ export class AuthpageComponent implements OnInit{
     })
   }
 
-  navigatedtohome(){
+  navigatedtohome(){  // Login inprovisado 
     const email = this.formlogingroup.get('email')?.value;
     const password = this.formlogingroup.get('password')?.value;  // Toma de valores del formulario
     if(email !== ''){

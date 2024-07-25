@@ -102,29 +102,36 @@
             <p class="text-gray-100">
                 or use email your account
             </p>
-            <form action="" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+            <form class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto" (ngSubmit)="registerUser(userForm)" #userForm="ngForm">
                 <div class="pb-2 pt-4">
-                    <input type="" name="" id="" placeholder="Name" class="block w-full p-4 text-lg rounded-sm bg-black">
+                    <input type="text" name="userName" ngModel id="userName" placeholder="Name" class="block w-full p-4 text-lg rounded-sm bg-black" required>
                 </div>
                 <div class="pb-2 pt-4">
-                    <input class="block w-full p-4 text-lg rounded-sm bg-black" type="" name="" id="" placeholder="Email">
+                    <input class="block w-full p-4 text-lg rounded-sm bg-black" type="email" name="mail" ngModel id="mail" placeholder="Email" required>
                 </div>
                 <div class="pb-2 pt-4">
-                    <input class="block w-full p-4 text-lg rounded-sm bg-black" type="" name="" id="" placeholder="Password">
+                    <input class="block w-full p-4 text-lg rounded-sm bg-black" type="password" name="password" ngModel id="password" placeholder="Password" required>
                 </div>
                 <div class="pb-2 pt-4">
-                    <select class="block w-full p-4 text-lg rounded-sm bg-black"></select>
+                    <select class="block w-full p-4 text-lg rounded-sm bg-black" name="preferences" ngModel required>
+                        <option value="action">Action</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                    </select>
                 </div>
                 <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
                     <a href="#">Forgot your password?</a>
                 </div>
                 <div class="px-4 pb-2 pt-4">
-                    <button class="uppercase block w-full p-4 text-lg rounded-full bg-orange-600 hover:bg-orange-800 focus:outline-none">Registrar</button>
+                    <button class="uppercase block w-full p-4 text-lg rounded-full bg-orange-600 hover:bg-orange-800 focus:outline-none" type="submit">Register</button>
                 </div>
                 <div class="px-4 pb-2 pt-4">
-                    <h1 > OR </h1>
+                    <h1>OR</h1>
                 </div>
                 <hr>
+                <div *ngIf="successMessage" class="text-green-500">
+                    {{ successMessage }}
+                </div>
             </form>
             <div class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 <div class=" px-4 pb-2 pt-4">
