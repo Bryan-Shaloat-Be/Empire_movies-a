@@ -12,9 +12,9 @@ import { UserService } from '@modules/auth/services/user.service';
 })
 export class AuthpageComponent implements OnInit{
 
-  successMessage: string = '';
   change_view: boolean = false;
   formUserRegister: FormGroup = new FormGroup({});
+  alertRegisterCorrect: boolean = true;
 
   items_select: Array<any> = [
     {value: 'Accion', viewValue: 'Accion'},
@@ -38,9 +38,24 @@ export class AuthpageComponent implements OnInit{
     {value: 'Suspenso', viewValue: 'Suspenso'},
     {value: 'Terror', viewValue: 'Terror'},
   ]
+  get name(){
+    return this.formUserRegister.get('userName');
+  }
+
+  get mail(){
+    return this.formUserRegister.get('mail');
+  }
+
+  get password(){
+    return this.formUserRegister.get('password');
+  }
+
+  get preferences(){
+    return this.formUserRegister.get('preferences');
+  }
+
 
   constructor(public router: Router, private userService: UserService, private fr: FormBuilder){}
-
 
   registerView(){
     this.change_view = !this.change_view  //Cambio de vista entre el registro y el inicio de sesion
@@ -49,15 +64,20 @@ export class AuthpageComponent implements OnInit{
 
   registerUser(){ //uso del servicio para registros de usuarios nuevos 
     if (this.formUserRegister.valid){
-      console.log(this.formUserRegister.value)
+      
       const userData = this.formUserRegister.value
       this.userService.registerService(userData).subscribe(response =>{
         console.log('usuario registrado con exito', response);
       }, error =>{
         console.error('Registration error:', error);
       });
+
+      this.alertRegisterCorrect = !this.alertRegisterCorrect 
+      setTimeout(() => {
+        this.alertRegisterCorrect = !this.alertRegisterCorrect // alerta 
+      }, 2000);
+      this.formUserRegister.reset();
     }
-    this.successMessage = 'Registro exitoso. Redirigiendo...'; // Mensaje de registro exitoso y recarga de pagina
   }
 
   ngOnInit(): void {

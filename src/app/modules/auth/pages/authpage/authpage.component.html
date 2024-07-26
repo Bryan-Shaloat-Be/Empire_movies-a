@@ -1,4 +1,5 @@
 <!-- Login  -->
+
 <section  *ngIf="!change_view" class="min-h-screen flex items-stretch text-white ">
         <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center" style="background-image: url(assets/Logo/series.jpg);">
             <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
@@ -18,7 +19,6 @@
                 </span>
             </div>
         </div>
-
         <!-- Login form -->
         <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0" style="background-color: #161616;">
             <div class="absolute lg:hidden z-10 inset-0 bg-gray-500 bg-no-repeat bg-cover items-center" style="background-image: url(assets/Logo/series.jpg);">
@@ -29,14 +29,6 @@
                     <img src="assets/Logo/logo_4.png">
                     <h1 class="my-6 font-BaskervvilleSC text-4xl sm:text-5xl"> Empire Movies </h1>
                 </div>
-                <div class="py-6 space-x-2">
-                    <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">f</span>
-                    <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">G+</span>
-                    <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">in</span>
-                </div>
-                <p class="text-gray-100">
-                    or use email your account
-                </p>
                 <form action="" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                     <div class="pb-2 pt-4">
                         <input type="email" name="email" id="email" placeholder="Email" class="block w-full p-4 text-lg rounded-sm bg-black">
@@ -84,6 +76,10 @@
             </span>
         </div>
     </div>
+
+    <div *ngIf="!alertRegisterCorrect" class="absolute inset-1 flex items-center justify-center bg-green-600 text-white p-2 z-10 w-50 h-20 mx-14">
+        <span>Registrado correctamente</span>
+    </div>
     <!-- Registro form-->
     <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0" style="background-color: #161616;">
         <div class="absolute lg:hidden z-10 inset-0 bg-gray-500 bg-no-repeat bg-cover items-center" style="background-image: url(assets/Logo/series.jpg);">
@@ -94,42 +90,57 @@
                 <img src="assets/Logo/logo_4.png">
                 <h1 class="my-6 font-BaskervvilleSC text-4xl sm:text-5xl"> Empire Movies </h1>
             </div>
-            <div class="py-6 space-x-2">
-                <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">f</span>
-                <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">G+</span>
-                <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">in</span>
-            </div>
-            <p class="text-gray-100">
-                or use email your account
-            </p>
+            
             <form [formGroup]="formUserRegister" (ngSubmit)="registerUser()"  class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 <div class="pb-2 pt-4">
-                    <input formControlName="userName" type="text" name="userName" id="userName" placeholder="Name" class="block w-full p-4 text-lg rounded-sm bg-black" >
+                    <input formControlName="userName" type="text" name="userName" id="userName" placeholder="Nombre" class="block w-full p-4 text-lg rounded-sm bg-black" >
+                </div>
+                <div class="bg-red-600" *ngIf="name?.touched && name?.invalid">
+                    <span *ngIf="name?.errors?.['required']">
+                        Nombre obligatorio
+                    </span>
                 </div>
                 <div class="pb-2 pt-4">
                     <input formControlName="mail" type="email" name="mail" id="mail" placeholder="Email"  class="block w-full p-4 text-lg rounded-sm bg-black">
                 </div>
+                <div class="bg-red-600" *ngIf="mail?.touched && mail?.invalid">
+                    <span *ngIf="mail?.errors?.['required']">
+                        Correo obligatorio
+                    </span>
+                    <span *ngIf="mail?.errors?.['email']">
+                        Correo no válido
+                    </span>
+                </div>
                 <div class="pb-2 pt-4">
-                    <input formControlName="password" type="password" name="password" id="password" placeholder="Password"  class="block w-full p-4 text-lg rounded-sm bg-black">
+                    <input formControlName="password" type="password" name="password" id="password" placeholder="Contrasena"  class="block w-full p-4 text-lg rounded-sm bg-black">
+                </div>
+                <div class="bg-red-600" *ngIf="password?.touched && password?.invalid">
+                    <span *ngIf="password?.errors?.['required']">
+                        Contrasena obligatoria
+                    </span>
                 </div>
                 <div class="pb-2 pt-4">
                     <select  formControlName="preferences" class="custom-select block w-full p-4 text-lg rounded-sm bg-black" name="preferences">
+                        <option value=""> Selecciona una categoria  </option>
                         <option *ngFor="let category of items_select" >{{category.value}}</option>
                     </select>
+                </div>
+                <div class="bg-red-600" *ngIf="preferences?.touched && preferences?.invalid">
+                    <span *ngIf="preferences?.errors?.['required']">
+                        Preferencia obligatoria
+                    </span>
                 </div>
                 <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
                     <a href="#">Forgot your password?</a>
                 </div>
                 <div class="px-4 pb-2 pt-4">
-                    <button class="uppercase block w-full p-4 text-lg rounded-full bg-orange-600 hover:bg-orange-800 focus:outline-none" type="submit">Registrar</button>
+                    <button  class="uppercase block w-full p-4 text-lg rounded-full bg-orange-600 hover:bg-orange-800 focus:outline-none disabled:bg-gray-400"  type="submit" [disabled]="formUserRegister.invalid">Registrar</button>
                 </div>
                 <div class="px-4 pb-2 pt-4">
                     <h1>OR</h1>
                 </div>
                 <hr>
-                <div *ngIf="successMessage" class="text-green-500">
-                    {{ successMessage }}
-                </div>
+
             </form>
             <div class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 <div class=" px-4 pb-2 pt-4">
@@ -139,5 +150,3 @@
         </div>
     </div>
 </section>
-{{ formUserRegister.value| json}}
-{{ formUserRegister.valid| json}}
