@@ -13,4 +13,10 @@ export class UserService {
   registerService(userData: any): Observable<any>{
     return this.http.post(`${this.apiUrl}/register`, userData); // aqui realizamos el post al backend
   }
+
+  loginservice(userData: any): Observable<any>{
+    return this.http.post(`${this.apiUrl}/sesion`, userData);  // aqui se realiza el post para el login
+  }
 }
+
+

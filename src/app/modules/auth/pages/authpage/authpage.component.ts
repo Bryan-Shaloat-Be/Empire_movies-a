@@ -14,6 +14,7 @@ export class AuthpageComponent implements OnInit{
 
   change_view: boolean = false;
   formUserRegister: FormGroup = new FormGroup({});
+  formUserLogin: FormGroup = new FormGroup({});
   alertRegisterCorrect: boolean = true;
 
   items_select: Array<any> = [
@@ -47,15 +48,36 @@ export class AuthpageComponent implements OnInit{
   }
 
   get password(){
-    return this.formUserRegister.get('password');
+    return this.formUserRegister.get('password');   // Gets para alerts 
   }
 
   get preferences(){
     return this.formUserRegister.get('preferences');
   }
 
+  get mailLogin(){
+    return this.formUserLogin.get('mailLogin');
+  }
+
+  get passwordLogin(){
+    return this.formUserLogin.get('passwordLogin');
+  }
 
   constructor(public router: Router, private userService: UserService, private fr: FormBuilder){}
+
+  ngOnInit(): void {
+      this.formUserRegister = this.fr.group({
+      'userName': new FormControl('', Validators.required),
+      'mail': new FormControl('',[Validators.required, Validators.email]), // Grupo de formulario con validaciones para el registro de usuarios 
+      'password': new FormControl('',Validators.required),
+      'preferences': new FormControl('', Validators.required)
+    });
+
+    this.formUserLogin = this.fr.group({
+      'mailLogin': new FormControl('', [Validators.required, Validators.email]),
+      'passwordLogin': new FormControl('', Validators.required)
+    })
+  }
 
   registerView(){
     this.change_view = !this.change_view  //Cambio de vista entre el registro y el inicio de sesion
@@ -80,12 +102,12 @@ export class AuthpageComponent implements OnInit{
     }
   }
 
-  ngOnInit(): void {
-      this.formUserRegister = this.fr.group({
-      'userName': new FormControl('', Validators.required),
-      'mail': new FormControl('',[Validators.required, Validators.email]), // Grupo de formulario con validaciones para el registro de usuarios 
-      'password': new FormControl('',Validators.required),
-      'preferences': new FormControl('', Validators.required)
-    });
+  loginUser(){  // Uso del servicio para iniciar sesion 
+    const userData = this.formUserLogin.value
+    this.userService.loginservice(userData).subscribe(response =>{
+      console.log('Usuario ingreso correctamente', response);
+    },error =>{
+      console.log('Inicio de sesion invalido', error);
+    })
   }
 }

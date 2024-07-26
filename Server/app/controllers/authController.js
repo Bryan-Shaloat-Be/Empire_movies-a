@@ -8,12 +8,12 @@ exports.register = async(req, res) => {
     try {
         
         const pool = await poolPromise;
-        //const hashedPassword = await bcrypt.hash(U_password, 10);
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         const result = await pool.request()
             .input('U_Name', sql.NVarChar, userName)  // recordatorio: importante el nombre de las variables para la trasmision de datos
             .input('Mail', sql.NVarChar, mail)
-            .input('U_password', sql.NVarChar,password)
+            .input('U_password', sql.NVarChar,hashedPassword)
             .input('Preferences',sql.NVarChar, preferences)
             .query(`
                 
@@ -25,6 +25,31 @@ exports.register = async(req, res) => {
         
     } catch (error) {
         res.status(500).json({error: error.message});
+    }
+}
+
+exports.login = async(req, res) =>{
+    const {mailLogin, passwordLogin} = req.body
+    console.log(req.body)
+    try{
+        const pool = await poolPromise;
+        const result = await pool.request()
+        .input('Mail', sql.NVarChar,mailLogin)
+        .query(`
+            
+            SELECT * FROM users where Mail = @mail;
+            
+            `)
+        const user = result.recordset[0];
+        if(!user || !(await bcrypt.compare(passwordLogin, user.U_password))){     // comparacion de las credenciales ingresadas con la DB 
+            return res.status(401).json({message: 'Contrasena incorrecta '});
+        }
+
+        const token = jwt.sign({id: user.ID_User, name: user.U_Name}, process.env.JWT_SECRET,{expiresIn: '1h'});
+        return res.status(200).json({token});
+
+    }catch(error){
+        res.status(500).json({ message: 'Error logging in', error: error.message });
     }
 }
 

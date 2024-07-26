@@ -29,18 +29,31 @@
                     <img src="assets/Logo/logo_4.png">
                     <h1 class="my-6 font-BaskervvilleSC text-4xl sm:text-5xl"> Empire Movies </h1>
                 </div>
-                <form action="" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+                <form [formGroup]="formUserLogin" (ngSubmit)="loginUser()" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                     <div class="pb-2 pt-4">
-                        <input type="email" name="email" id="email" placeholder="Email" class="block w-full p-4 text-lg rounded-sm bg-black">
+                        <input formControlName="mailLogin" type="email" name="mailLogin" id="mailLogin" placeholder="Correo" class="block w-full p-4 text-lg rounded-sm bg-black">
+                    </div>
+                    <div class="bg-red-600" *ngIf="mailLogin?.touched && mailLogin?.invalid">
+                        <span *ngIf="mailLogin?.errors?.['required']">
+                            Correo obligatorio
+                        </span>
+                        <span *ngIf="mailLogin?.errors?.['email']">
+                            Correo no válido
+                        </span>
                     </div>
                     <div class="pb-2 pt-4">
-                        <input class="block w-full p-4 text-lg rounded-sm bg-black" type="password" name="password" id="password" placeholder="Password">
+                        <input formControlName="passwordLogin" class="block w-full p-4 text-lg rounded-sm bg-black" type="password" name="passwordLogin" id="passwordLogin" placeholder="Contrasena">
+                    </div>
+                    <div class="bg-red-600" *ngIf="passwordLogin?.touched && passwordLogin?.invalid">
+                        <span *ngIf="passwordLogin?.errors?.['required']">
+                            Contrasena obligatoria
+                        </span>
                     </div>
                     <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
                         <a href="#">Forgot your password?</a>
                     </div>
                     <div class="px-4 pb-2 pt-4">
-                        <button class="uppercase block w-full p-4 text-lg rounded-full bg-orange-600 hover:bg-orange-800 focus:outline-none">Ingresa</button>
+                        <button class="uppercase block w-full p-4 text-lg rounded-full bg-orange-600 hover:bg-orange-800 focus:outline-none disabled:bg-gray-400" type="submit" [disabled]="formUserLogin.invalid">Ingresa</button>
                     </div>
                     <div class="px-4 pb-2 pt-4">
                         <h1 > OR </h1>
@@ -150,3 +163,5 @@
         </div>
     </div>
 </section>
+{{formUserLogin.valid}}
+{{formUserLogin.value | json}}
