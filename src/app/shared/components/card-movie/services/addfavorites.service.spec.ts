@@ -17,4 +17,11 @@ describe('AddfavoritesService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  it('Eliminar favorito', () => {
+    service.deletefavorites(1)
+  });
+
+  it('aniadir favorito', () => {
+    service.addfavorites(1)
+  });
 });

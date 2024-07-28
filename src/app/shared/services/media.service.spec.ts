@@ -17,4 +17,12 @@ describe('MediaService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('Obtener Movies', () => {
+    service.getMoviesService()
+  });
+
+  it('Obtener series', () => {
+    service.getSeriesService()
+  });
 });

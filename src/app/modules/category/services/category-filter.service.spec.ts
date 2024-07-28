@@ -17,4 +17,15 @@ describe('CategoryFilterService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should be created', () => {
+    service.getMoviesCategory(1)
+  });
+
+  it('should be created', () => {
+    service.getSeriesCategory(1)
+  });
+  it('should be created', () => {
+    service.setCategory('data')
+  });
 });

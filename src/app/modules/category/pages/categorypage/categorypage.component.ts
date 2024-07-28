@@ -1,6 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import * as data from '../../../../data/movies.json'
-import { movieslist } from '@cores/models/movies.model';
 import { Subscription } from 'rxjs';
 import { CategoryFilterService } from '@modules/category/services/category-filter.service';
 
@@ -34,13 +32,8 @@ export class CategorypageComponent implements OnInit, OnDestroy {
     this.listObservers$.forEach(u => u.unsubscribe());
   }
 
-  /*filtersmoviescategory(category: string): void {
-    this.mockmoviesf = this.mockmovies.filter(catego => catego.genre === category);  //Filtrar las peliculas por categorias 
-    this.categorys = category;
-  }*/
-
   GetMoviesCategory(Category: any){
-    this.categoryFilter.getMoviesCategory(Category).subscribe(response=>{
+    this.categoryFilter.getMoviesCategory(Category).subscribe(response=>{ // obtener las peliculas
     this.MoviesC = response.data
     })
   }

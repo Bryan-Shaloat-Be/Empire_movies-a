@@ -1,5 +1,4 @@
 import { Component, Input, Renderer2 } from '@angular/core';
-import { movieslist } from '@cores/models/movies.model';
 import { AddfavoritesService } from './services/addfavorites.service';
 import { jwtDecode } from 'jwt-decode';
 
@@ -26,6 +25,7 @@ export class CardMovieComponent {
   addTofavorites(){
     const token = sessionStorage.getItem('authtoken')
     if(token){
+      
       const decodedToken = jwtDecode(token) as { id: number; };
       const media = {ID_User: decodedToken.id, ID_Movie: this.movie.ID_Movie !== undefined? this.movie.ID_Movie: null, ID_Series: this.movie.ID_Series !== undefined? this.movie.ID_Series: null}
       console.log(media)
@@ -38,7 +38,7 @@ export class CardMovieComponent {
   }
 
   deletefavorites(){
-    const token = sessionStorage.getItem('authtoken');
+    const token = sessionStorage.getItem('authtoken'); 
     if(token){
       const decodedToken = jwtDecode(token) as { id: number; };
       const media = {ID_User: decodedToken.id, ID_Movie: this.movie.ID_Movie !== undefined? this.movie.ID_Movie: null, ID_Series: this.movie.ID_Series !== undefined? this.movie.ID_Series: null}
@@ -49,7 +49,5 @@ export class CardMovieComponent {
     }else{
       console.log('Token vacio');
     }
-   
   }
-
 }

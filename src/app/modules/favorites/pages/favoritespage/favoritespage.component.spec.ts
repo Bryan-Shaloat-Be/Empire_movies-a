@@ -25,4 +25,8 @@ describe('FavoritespageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create', () => {
+    component.getfavorites()
+  });
 });

@@ -4,11 +4,14 @@ import { Router } from '@angular/router';
 import { AuthpageComponent } from './authpage.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http'
+import { UserService } from '@modules/auth/services/user.service';
+import { Observable, of } from 'rxjs';
 
 describe('AuthpageComponent', () => {
   let component: AuthpageComponent;
   let fixture: ComponentFixture<AuthpageComponent>;
   let router: Router;
+  let service: UserService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -20,12 +23,32 @@ describe('AuthpageComponent', () => {
     fixture = TestBed.createComponent(AuthpageComponent);
     component = fixture.componentInstance;
     router = TestBed.inject(Router)
-    fixture.detectChanges();
+    service = TestBed.inject(UserService)
+    
   });
   
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Pruebas para login', () => {
+    component.loginUser()
+    const userdat = {}
+    spyOn(service, 'loginservice').and.returnValue(of(userdat))
+  });
+
+  it('should create', () => {
+    component.registerUser()
+    
+    const spyserv = spyOn(service, 'registerService')
+  }); 
+
+  it('should create', () => {
+    component.registerView()
+  });
+
+
+
   /* it('Verificacion de condicionales se espera que sea invalido ',() => {
     spyOn(window, 'alert');
     component.formlogingroup.setValue({email:'', password:'xdededede'});     // Test para el else

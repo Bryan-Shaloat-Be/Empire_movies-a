@@ -2,14 +2,16 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CategorypageComponent } from './categorypage.component';
 import { SectionMoviesComponent } from '@shared/components/section-movies/section-movies.component';
 import { CardMovieComponent } from '@shared/components/card-movie/card-movie.component';
-import * as data from '../../../../data/movies.json'
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { CategoryFilterService } from '@modules/category/services/category-filter.service';
+import { Subscription, of } from 'rxjs';
 
 describe('CategorypageComponent', () => {
   let component: CategorypageComponent;
   let fixture: ComponentFixture<CategorypageComponent>;
   let HttpTestingController: HttpTestingController
+  let service: CategoryFilterService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,6 +23,7 @@ describe('CategorypageComponent', () => {
     fixture = TestBed.createComponent(CategorypageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    service = TestBed.inject(CategoryFilterService)
     component.ngOnInit();
     
   });
@@ -29,14 +32,18 @@ describe('CategorypageComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Verificacion de entrada de datos del json', () =>{
-    expect(component.MoviesC.length).toBeGreaterThan(0)
+  it('should create', () => {
+    component.GetMoviesCategory(1)
   });
 
-  it('verificacion de la funcion de filtro de categorias',() =>{
-    const category: string = 'accion'
-    
-    component.GetMoviesCategory(category); // buscar verficar la filtracion de datos 
-    expect(component.MoviesC.length).toBeGreaterThan(3) // Verificacion de filtros correcta
-  })
+  it('should create', () => {
+    component.GetSeriesCategory(1)
+  });
+
+  it('valor de categoria', () => {
+    const category = 'Action';
+    service.callcategory = of(category);
+    component.ngOnInit();
+    expect(component.categorys).toBe(category);
+  });
 });
