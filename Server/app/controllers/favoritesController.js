@@ -29,7 +29,7 @@ exports.getFavorites = async(req, res) => {
             LEFT JOIN 
                 Series s ON f.ID_Series = s.ID_Series
             WHERE 
-                f.ID_User = 4;
+                f.ID_User = @ID_User;
 
             `)
 
