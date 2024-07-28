@@ -5,10 +5,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AddfavoritesService {
-  private apiUrl = 'http://localhost:3000/addfavorites';
+  private apiUrl = 'http://localhost:3000/favorites';
   constructor(private http: HttpClient) { }
 
-  addfavorites(MediaFavorite: any){
-    return this.http.post(`${this.apiUrl}/addfavorites`,MediaFavorite);
+  addfavorites(media: any){
+    return this.http.post(`${this.apiUrl}/addfavorites`,media);
+  }
+
+  deletefavorites(media: any){
+    return this.http.post(`${this.apiUrl}/deletefavorites`,media);
   }
 }

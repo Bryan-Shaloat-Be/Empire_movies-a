@@ -57,7 +57,7 @@
                                 <path d="M7 4v16l13 -8z" />
                             </svg>
                         </button>
-                        <button *ngIf="!movie.ID_Content" class="flex justify-center gap-x-1 bg-blue-600 w-full py-2 rounded-md 2xl:w-[200px]"> 
+                        <button  *ngIf="!movie.ID_Favorites" (click)="addTofavorites()" class="flex justify-center gap-x-1 bg-blue-600 w-full py-2 rounded-md 2xl:w-[200px]"> 
                             <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  
                                 viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  
                                 stroke-linecap="round"  stroke-linejoin="round"  
@@ -66,7 +66,7 @@
                                 <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                             </svg>
                         </button>
-                        <button *ngIf="movie.ID_Content" class="flex justify-center gap-x-1 bg-blue-600 w-full py-2 rounded-md 2xl:w-[200px]"> 
+                        <button *ngIf="movie.ID_Favorites" (click)="deletefavorites()" class="flex justify-center gap-x-1 bg-blue-600 w-full py-2 rounded-md 2xl:w-[200px]"> 
                             <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  
                                 fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  
                                 stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart-off">
