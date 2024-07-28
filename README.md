@@ -186,6 +186,3 @@ ng test
 
 
 Any constructive feedback will be welcomed and appreciated. send it to me at the following email bryanbarraganpulido@gmail.com
-## Database Diagram
-
-- [Entity relationship diagram](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Entity%20relationship%20diagram/diagrama2.PNG)
