@@ -1,5 +1,7 @@
 import { Component, Input, Renderer2 } from '@angular/core';
 import { movieslist } from '@cores/models/movies.model';
+import { AddfavoritesService } from './services/addfavorites.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-card-movie',
@@ -7,17 +9,13 @@ import { movieslist } from '@cores/models/movies.model';
   styleUrl: './card-movie.component.css'
 })
 export class CardMovieComponent {
-  @Input() movie: movieslist = <any> [];
-  @Input() id!: movieslist;
-  @Input() title!: movieslist;
-  @Input() description!: movieslist;
-  @Input() genre!: movieslist;
-  @Input() time!: movieslist;
-  @Input() img!: movieslist;
+  @Input() movie: any = <any>{};
+
+
 
   menu: boolean = false;
 
-  constructor(private renderer: Renderer2){}
+  constructor(private renderer: Renderer2, private addfav: AddfavoritesService){}
 
   onclickmenu() {
     this.menu = !this.menu;
@@ -27,4 +25,17 @@ export class CardMovieComponent {
       this.renderer.removeClass(document.body, 'no-scroll');
     }
   }
+  addTofavorites(){
+    const token = sessionStorage.getItem('authtoken')
+    if(token){
+      const decodedToken = jwtDecode(token) as { id: number; };
+      
+      this.addfav.addfavorites(decodedToken.id).subscribe(response =>{
+        console.log('Peliculas y series favoritas obtenidas', response);
+      })
+    }else{
+      console.log('Token vacio');
+    }
+  }
+
 }

@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-
-import { UserService } from './user.service';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from '@modules/auth/services/user.service'; 
+import { CookieService } from 'ngx-cookie-service'; 
 
 describe('UserService', () => {
   let service: UserService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule], 
+      providers: [UserService, CookieService] 
+    });
     service = TestBed.inject(UserService);
   });
 

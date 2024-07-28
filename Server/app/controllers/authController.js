@@ -30,7 +30,6 @@ exports.register = async(req, res) => {
 
 exports.login = async(req, res) =>{
     const {mailLogin, passwordLogin} = req.body
-    console.log(req.body)
     try{
         const pool = await poolPromise;
         const result = await pool.request()
@@ -42,7 +41,7 @@ exports.login = async(req, res) =>{
             `)
         const user = result.recordset[0];
         if(!user || !(await bcrypt.compare(passwordLogin, user.U_password))){     // comparacion de las credenciales ingresadas con la DB 
-            return res.status(401).json({message: 'Contrasena incorrecta '});
+            return res.status(401).json({message: 'Credenciales incorrectas '});
         }
 
         const token = jwt.sign({id: user.ID_User, name: user.U_Name}, process.env.JWT_SECRET,{expiresIn: '1h'});

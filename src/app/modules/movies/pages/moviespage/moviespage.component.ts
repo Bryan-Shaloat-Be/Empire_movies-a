@@ -1,7 +1,8 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import * as data from '../../../../data/movies.json'
 import { movieslist } from '@cores/models/movies.model';
-import { FiltersService } from '@modules/category/services/filters.service';
+import { MediaService } from '@shared/services/media.service';
+
 
 @Component({
   selector: 'app-moviespage',
@@ -9,16 +10,24 @@ import { FiltersService } from '@modules/category/services/filters.service';
   styleUrl: './moviespage.component.css'
 })
 export class MoviespageComponent implements OnInit{
-  mockmovies: Array<movieslist> = [];
-  mockmoviesf: Array<movieslist> = [];
-  listObservers$: Array<any> =[];
+  movies: any[] = []
+  series: any[] = []
 
-  constructor(){}
+  constructor(private mediaservice: MediaService){}
+
 
   ngOnInit(): void {
-    const {datas} : any = (data as any).default // lectura de datos 
-    
-    this.mockmovies = datas
+    this.mediaservice.getMoviesService().subscribe(response =>{  // servicio para las peliculas
+      this.movies = response;
+      }, error =>{
+        console.log('No se obtuvieron las peliculas', error);
+    });
+
+    this.mediaservice.getSeriesService().subscribe(response =>{  // servicioo para las series 
+      this.series = response
+    },error => {
+      console.log('No se obtuvieron las series', error)
+    });
   }
 }
 

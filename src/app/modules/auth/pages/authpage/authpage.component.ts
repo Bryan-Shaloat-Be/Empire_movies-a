@@ -3,6 +3,7 @@ import {  FormBuilder,FormControl, FormGroup, NgForm, Validators } from '@angula
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '@modules/auth/services/user.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -10,12 +11,14 @@ import { UserService } from '@modules/auth/services/user.service';
   templateUrl: './authpage.component.html',
   styleUrl: './authpage.component.css'
 })
+
 export class AuthpageComponent implements OnInit{
 
   change_view: boolean = false;
   formUserRegister: FormGroup = new FormGroup({});
   formUserLogin: FormGroup = new FormGroup({});
   alertRegisterCorrect: boolean = true;
+  tokensesion: string = '';
 
   items_select: Array<any> = [
     {value: 'Accion', viewValue: 'Accion'},
@@ -63,7 +66,7 @@ export class AuthpageComponent implements OnInit{
     return this.formUserLogin.get('passwordLogin');
   }
 
-  constructor(public router: Router, private userService: UserService, private fr: FormBuilder){}
+  constructor(public router: Router, private userService: UserService, private fr: FormBuilder , private cookie: CookieService){}
 
   ngOnInit(): void {
       this.formUserRegister = this.fr.group({
@@ -106,6 +109,9 @@ export class AuthpageComponent implements OnInit{
     const userData = this.formUserLogin.value
     this.userService.loginservice(userData).subscribe(response =>{
       console.log('Usuario ingreso correctamente', response);
+      this.tokensesion = response;
+      this.cookie.set('token', this.tokensesion, 15 / (24 * 60),'/')  // cookie del token 
+      this.router.navigate(['/','movies'])
     },error =>{
       console.log('Inicio de sesion invalido', error);
     })

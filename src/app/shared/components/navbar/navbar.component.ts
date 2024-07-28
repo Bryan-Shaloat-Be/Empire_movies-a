@@ -41,7 +41,7 @@ export class NavbarComponent implements OnInit {
       ,
       {
         name: "Peliculas",
-        router: ['/','movies']
+        router: ['/','onlyMovies']
       },
       {
         name: "Series",

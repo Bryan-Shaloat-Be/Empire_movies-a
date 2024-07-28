@@ -4,20 +4,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoryModule } from '@modules/category/category.module';
 import { SharedModule } from '@shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '@modules/auth/services/user.service';
+import { CookieService } from 'ngx-cookie-service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

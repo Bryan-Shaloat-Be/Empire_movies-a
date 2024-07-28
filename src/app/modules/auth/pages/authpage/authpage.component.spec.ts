@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthpageComponent } from './authpage.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http'
 
 describe('AuthpageComponent', () => {
   let component: AuthpageComponent;
@@ -11,7 +12,7 @@ describe('AuthpageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, RouterTestingModule],
+      imports: [ReactiveFormsModule, RouterTestingModule, HttpClientModule],
       declarations: [AuthpageComponent]
     })
     .compileComponents();
@@ -21,13 +22,16 @@ describe('AuthpageComponent', () => {
     router = TestBed.inject(Router)
     fixture.detectChanges();
   });
-
+  
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
   /* it('Verificacion de condicionales se espera que sea invalido ',() => {
     spyOn(window, 'alert');
     component.formlogingroup.setValue({email:'', password:'xdededede'});     // Test para el else
     component.navigatedtohome()
     expect(window.alert).toHaveBeenCalledWith('No ingreso su usuario')
-  }); */
+  }); 
 
   /*it('Verificacion de condicionales se espera que sea valido',() => {
     spyOn(component.router,'navigate');

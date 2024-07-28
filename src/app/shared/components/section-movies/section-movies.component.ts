@@ -9,6 +9,7 @@ import { movieslist } from '@cores/models/movies.model';
 export class SectionMoviesComponent implements OnInit {
   @Input() title: string = '';
   @Input() datas: Array <movieslist> = []
+  @Input() movies: any;
   
   constructor(){}
 
