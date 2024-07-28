@@ -1,13 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardMovieComponent } from './card-movie.component';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('CardMovieComponent', () => {
   let component: CardMovieComponent;
   let fixture: ComponentFixture<CardMovieComponent>;
+  let HttpTestingController: HttpTestingController;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [CardMovieComponent]
     })
     .compileComponents();

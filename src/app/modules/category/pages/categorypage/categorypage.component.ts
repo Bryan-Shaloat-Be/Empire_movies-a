@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as data from '../../../../data/movies.json'
 import { movieslist } from '@cores/models/movies.model';
-import { FiltersService } from '@modules/category/services/filters.service';
 import { Subscription } from 'rxjs';
+import { CategoryFilterService } from '@modules/category/services/category-filter.service';
 
 @Component({
   selector: 'app-categorypage',
@@ -10,22 +10,21 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./categorypage.component.css']
 })
 export class CategorypageComponent implements OnInit, OnDestroy {
-  mockmovies: Array<movieslist> = [];
-  mockmoviesf: Array<movieslist> = [];
   listObservers$: Subscription[] = [];
-  categorys: string = '';
+  categorys: string | null = '';
+  SeriesC: any[] = [];
+  MoviesC: any[] = [];
 
-  constructor( private asfilter: FiltersService) {}
+  constructor( private categoryFilter: CategoryFilterService ) {}
 
   ngOnInit(): void {
-    this.mockmovies = (data as any).default.datas; 
-    
-
-    const observer$ = this.asfilter.callcategory.subscribe(category => {
+    const observer$ = this.categoryFilter.callcategory.subscribe(category => {
       if (category) {
         console.log('inicio de componente');
-        this.filtersmoviescategory(category);
+        this.GetMoviesCategory(category);
+        this.GetSeriesCategory(category);
       }
+      this.categorys = category
     });
     this.listObservers$.push(observer$);
   }
@@ -35,9 +34,21 @@ export class CategorypageComponent implements OnInit, OnDestroy {
     this.listObservers$.forEach(u => u.unsubscribe());
   }
 
-  filtersmoviescategory(category: string): void {
+  /*filtersmoviescategory(category: string): void {
     this.mockmoviesf = this.mockmovies.filter(catego => catego.genre === category);  //Filtrar las peliculas por categorias 
     this.categorys = category;
-   
+  }*/
+
+  GetMoviesCategory(Category: any){
+    this.categoryFilter.getMoviesCategory(Category).subscribe(response=>{
+    this.MoviesC = response.data
+    })
+  }
+
+  GetSeriesCategory(Category: any){
+    this.categoryFilter.getSeriesCategory(Category).subscribe(response =>{
+      this.SeriesC = response.data
+      console.log(response)
+    })
   }
 }

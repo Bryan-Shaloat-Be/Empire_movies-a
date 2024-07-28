@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FiltersService } from '@modules/category/services/filters.service';
+import { CategoryFilterService } from '@modules/category/services/category-filter.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
   menu: boolean = false;
   isClickable: boolean = true;
 
-  constructor(public router: Router, private asfilter: FiltersService) {}  //recordar cambiar a privado los routers 
+  constructor(public router: Router, private categoryChange: CategoryFilterService) {}  //recordar cambiar a privado los routers 
 
   link_menu: {
     defaultOptions: Array<any>, accesslink: Array<any>
@@ -23,7 +24,7 @@ export class NavbarComponent implements OnInit {
   }
 
   filtercategory(category: string) {
-    this.asfilter.setCategory(category);  //Utilizar un servicio reactivo para escuchar los cambios de la categorias y filtrar
+    this.categoryChange.setCategory(category);  //Utilizar un servicio reactivo para escuchar los cambios de la categorias y filtrar
     this.router.navigate(['/category']);
   }
 
@@ -58,7 +59,7 @@ export class NavbarComponent implements OnInit {
         router: ['/','favorites']
       }
     ];
-    this.asfilter.callcategory.subscribe(category => {
+    this.categoryChange.callcategory.subscribe(category => {
     });
   }
 }

@@ -4,12 +4,16 @@ import { SectionMoviesComponent } from '@shared/components/section-movies/sectio
 import { CardMovieComponent } from '@shared/components/card-movie/card-movie.component';
 import * as data from '../../../../data/movies.json'
 
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+
 describe('CategorypageComponent', () => {
   let component: CategorypageComponent;
   let fixture: ComponentFixture<CategorypageComponent>;
+  let HttpTestingController: HttpTestingController
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [CategorypageComponent, SectionMoviesComponent, CardMovieComponent]
     })
     .compileComponents();
@@ -26,13 +30,13 @@ describe('CategorypageComponent', () => {
   });
 
   it('Verificacion de entrada de datos del json', () =>{
-    expect(component.mockmovies.length).toBeGreaterThan(0)
+    expect(component.MoviesC.length).toBeGreaterThan(0)
   });
 
   it('verificacion de la funcion de filtro de categorias',() =>{
     const category: string = 'accion'
     
-    component.filtersmoviescategory(category); // buscar verficar la filtracion de datos 
-    expect(component.mockmoviesf.length).toBeGreaterThan(3) // Verificacion de filtros correcta
+    component.GetMoviesCategory(category); // buscar verficar la filtracion de datos 
+    expect(component.MoviesC.length).toBeGreaterThan(3) // Verificacion de filtros correcta
   })
 });

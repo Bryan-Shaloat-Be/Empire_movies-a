@@ -3,15 +3,17 @@ import { NavbarComponent } from './navbar.component';
 import { RouterTestingModule } from '@angular/router/testing'
 import { BoundElementProperty } from '@angular/compiler';
 import { Router } from '@angular/router';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
   let router: Router;
+  let HttpTestingController: HttpTestingController
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[RouterTestingModule],
+      imports:[RouterTestingModule, HttpClientTestingModule],
       declarations: [NavbarComponent]
     })
     .compileComponents();
