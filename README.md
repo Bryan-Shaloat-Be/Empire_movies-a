@@ -100,7 +100,9 @@ Movil-Resposive
 
 ## Database Diagram
 
-- [Entity relationship diagram](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Entity%20relationship%20diagram/diagrama2.PNG)
+- [Entity relationship Model](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Entity%20relationship%20diagram/Modelo_Entidad_Relacion.PNG)
+
+- [Entity relationship Diagram](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Entity%20relationship%20diagram/Diagrama_Entidad_Relacion.PNG)
 ## Data Base
 
 A database created with SQL Management Studio and SQL Server was used.
@@ -214,3 +216,8 @@ ng test
 
 
 Any constructive feedback will be welcomed and appreciated. send it to me at the following email bryanbarraganpulido@gmail.com
+## Database Diagram
+
+- [Entity relationship Model](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Entity%20relationship%20diagram/Modelo_Entidad_Relacion.PNG)
+
+- [Entity relationship Diagram](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Entity%20relationship%20diagram/Diagrama_Entidad_Relacion.PNG)
