@@ -172,7 +172,8 @@ GET/ category/MoviesC
 ```bash
 GET/ category/SeriesC
 ```
-## Process 
+## Process Sprint 4
+
 Data Base
 
 - Creating the database was not much of a problem (simple) but when using it I made some small changes to the restrictions for the favorite operations. 
