@@ -94,9 +94,9 @@ Movil-Resposive
 
 ## Test images
 
-- [Test](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/Testing.PNG)
+- [Test](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/New%20test-Results-Sprint-4.jpeg)
 
-- [Code Coverage](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/Code-Coverage-Testing.PNG)
+- [Code Coverage](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/New%20test-Code-Coverage-Sprint-4.jpeg)
 
 ## Database Diagram
 
@@ -165,7 +165,7 @@ GET/ category/SeriesC
 
 | What did I do right? | what I didn't do well| What can i do differently? 
 |----|-------------------|------|
-|the complete implementation of express with the database as well as the consumption of the database in the angular project (client)|Problems with specs or tests and middleware|dssdsBe careful with tests and improve alerts and messages to rectify that an action such as registrations or logins was carried out|
+|The complete implementation of express with the database as well as the consumption of the database in the angular project (client)|Problems with specs or tests and middleware|Be careful with tests and improve alerts and messages to rectify that an action such as registrations or logins was carried out|
 
 ## Build
 
@@ -186,3 +186,6 @@ ng test
 
 
 Any constructive feedback will be welcomed and appreciated. send it to me at the following email bryanbarraganpulido@gmail.com
+## Database Diagram
+
+- [Entity relationship diagram](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Entity%20relationship%20diagram/diagrama2.PNG)
