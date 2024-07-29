@@ -107,6 +107,17 @@ A database created with SQL Management Studio and SQL Server was used.
 
 - SQL Server -- version: 16.0.1000.6
 - SQL Management Studio 20
+
+Tables
+
+- Users
+- Rol
+- Movies
+- Series
+- Seasson
+- Chapers
+- History
+- Favorites
 ## Backend 
 
 
@@ -155,6 +166,20 @@ GET/ category/MoviesC
 ```bash
 GET/ category/SeriesC
 ```
+## Process 
+
+Data Base
+
+- Creating the database was not much of a problem (simple) but when using it I made some small changes to the restrictions for the favorite operations. 
+
+- There are other tables in the database such as: Seasons, Chapters, Role and History that are not used at the moment since they are designed for the future of the project.
+
+Backend
+
+- Creating the backend was a challenge but as I created the routes and controllers it became easier. The entire user registration and login system was implemented with reactive forms, route protection, authentication tokens and more. 
+A small system was created to add favorites, delete and view. 
+The basic consumption to show all movies and series, as well as a category filter.  Everything is already connected and working together with the project. 
+Client --- Server -- Database
 ## Sprint Review 2 and 3
 
 | What did I do right? | what I didn't do well| What can i do differently? 
@@ -167,6 +192,9 @@ GET/ category/SeriesC
 |----|-------------------|------|
 |The complete implementation of express with the database as well as the consumption of the database in the angular project (client)|Problems with specs or tests and middleware|Be careful with tests and improve alerts and messages to rectify that an action such as registrations or logins was carried out|
 
+## Problems 
+
+Have a problem with firsts route you need to enter at http://localhost:4200/auth/login not at http://localhost:4200
 ## Build
 
 Run to build the project. The build artifacts will be stored in the dist/ directory.
