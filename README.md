@@ -79,6 +79,8 @@ Descktop
 
 - [Login Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Login-Empire-Movies.PNG) <--- NEW
 
+- [Register Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Register-Empire_movies.PNG) <--- NEW
+
 - [Menu-category Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Categorias-menu-Empire-movies.PNG)
 
 Movil-Resposive
@@ -88,6 +90,8 @@ Movil-Resposive
 - [Menu Movil-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Menu-Responsivo-Empire-Movies.PNG) < -- NEW
 
 - [Login Movil-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Login-resposivo-Empire-movies.PNG) < -- NEW
+
+- [Register Movil-Resposive](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Register-Responsivo-Empire_movies.PNG) <-- NEW
 
 - [Card movie Movile-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/tarjeta-resposivo-pelicula.PNG)
 
@@ -169,7 +173,6 @@ GET/ category/MoviesC
 GET/ category/SeriesC
 ```
 ## Process 
-
 Data Base
 
 - Creating the database was not much of a problem (simple) but when using it I made some small changes to the restrictions for the favorite operations. 
