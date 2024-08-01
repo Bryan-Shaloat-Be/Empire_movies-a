@@ -131,7 +131,7 @@ A backend was created with APIs that are consumed by the client (angular) of the
 
 Users
 
-The entire authentication and registration and login system is implemented, including session times, verification token and guards to protect client routes.
+The entire authentication and registration and login system is implemented, including session times, verification token and guards to protect client routes
 ```bash
 POST/ register/register
 ```
