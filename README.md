@@ -107,7 +107,7 @@ Movil-Resposive
 - [Entity relationship Model](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Entity%20relationship%20diagram/Modelo_Entidad_Relacion.PNG)
 
 - [Entity relationship Diagram](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Entity%20relationship%20diagram/Diagrama_Entidad_Relacion.PNG)
-## Data Base
+## Database
 
 A database created with SQL Management Studio and SQL Server was used.
 
