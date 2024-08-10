@@ -33,7 +33,7 @@ builder.Services.AddControllers();
 
 // JWT para los tokens 
 
-var key = Encoding.UTF8.GetBytes("aVeryStrongAndSecureKeyThatIsAtLeast32BytesLong");
+var key = Encoding.UTF8.GetBytes("Jwt:Key");
 builder.Services.AddAuthentication(x => 
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
