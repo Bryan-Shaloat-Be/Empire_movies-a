@@ -68,12 +68,23 @@ namespace ServerAsp.Controllers
             return Ok(DesData);
         }
 
+        [HttpPost("Add")]
+        public IActionResult AddFavorites([FromBody] FavoritesM favoritesM)
+        {
+            string query = "INSERT INTO favorites(ID_User, ID_Movie, ID_Series) VALUES (@ID_User, @ID_Movie,@ID_Series)";
+            var parameters = new []
+            {
+                new SqlParameter("@ID_User", favoritesM.ID_User),
+                new SqlParameter("@ID_Movie", (object)favoritesM.ID_Movie ?? DBNull.Value),
+                new SqlParameter("@ID_Series", (object)favoritesM.ID_Series ?? DBNull.Value)
+            };
+            var data = _databaseManager.ExecuteNoQuery(query, parameters);
+            return Ok("Aniadido a favorito");
+        }
+
         [HttpPost("Delete")]
         public IActionResult DeleteFavorites([FromBody] FavoritesM favoritesM)
         {
-            Console.WriteLine(favoritesM.ID_Series);
-            Console.WriteLine(favoritesM.ID_Movie);
-            Console.WriteLine(favoritesM.ID_User);
             string query = "DELETE FROM Favorites WHERE ID_User = @ID_User AND ((ID_Movie IS NOT NULL AND ID_Movie = @ID_Movie) OR (ID_Series IS NOT NULL AND ID_Series = @ID_Series))";
             var parameters = new []
             {

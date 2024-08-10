@@ -10,7 +10,8 @@ export class AddfavoritesService {
   constructor(private http: HttpClient) { }
 
   addfavorites(media: any){
-    return this.http.post(`${this.apiUrl}/addfavorites`,media);
+    return this.http.post(`${this.apiUrl2}/Add`,media); // << -- Api ASP.net
+    //return this.http.post(`${this.apiUrl}/addfavorites`,media); << -- Api Express
   }
 
   deletefavorites(media: any){

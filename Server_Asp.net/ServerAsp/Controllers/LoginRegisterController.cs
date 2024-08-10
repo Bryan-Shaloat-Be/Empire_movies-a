@@ -14,10 +14,12 @@ namespace ServerAsp.Controllers
     [Route("api/[controller]")]
     public class RegisterUser : ControllerBase
     {
+        private readonly IConfiguration _configuration;
         private readonly DatabaseManager _databaseManager;
         private readonly PasswordHasher<object> _passwordHasher;
 
-        public RegisterUser(DatabaseManager databaseManager){ // injeccion de la clase databaseManager 
+        public RegisterUser(IConfiguration configuration, DatabaseManager databaseManager){ // injeccion de la clase databaseManager 
+            _configuration = configuration;
             _databaseManager = databaseManager;
             _passwordHasher = new PasswordHasher<object>();
         }
@@ -67,8 +69,9 @@ namespace ServerAsp.Controllers
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };
                 
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Jwt:Key"));
-                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                var key = _configuration["Jwt:Key"];
+                var keyBytes = Encoding.UTF8.GetBytes(key);
+                var creds = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256);
 
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {

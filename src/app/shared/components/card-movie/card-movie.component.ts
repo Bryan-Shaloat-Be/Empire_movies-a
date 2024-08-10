@@ -28,8 +28,9 @@ export class CardMovieComponent {
     const token = sessionStorage.getItem('authtoken')
     if(token){
       
-      const decodedToken = jwtDecode(token) as { id: number; };
-      const media = {ID_User: decodedToken.id, ID_Movie: this.movie.ID_Movie !== undefined? this.movie.ID_Movie: null, ID_Series: this.movie.ID_Series !== undefined? this.movie.ID_Series: null}
+      const decodedToken = jwtDecode(token) as { sub: string; };
+      const idUser = decodedToken.sub
+      const media = {ID_User: idUser, ID_Movie: this.movie.ID_Movie !== undefined? this.movie.ID_Movie: null, ID_Series: this.movie.ID_Series !== undefined? this.movie.ID_Series: null}
       console.log(media)
       this.addfav.addfavorites(media).subscribe(response =>{
         console.log('Peliculas o series anadida a favoritos', response);
@@ -51,7 +52,7 @@ export class CardMovieComponent {
       const idUser = decodedToken.sub
       const media = {
         ID_User: idUser,
-        ID_Movie: isEmptyObject(this.movie.ID_Movie )? 0 : this.movie.ID_Movie,
+        ID_Movie: isEmptyObject(this.movie.ID_Movie )? 0 : this.movie.ID_Movie, // solo para delete
         ID_Series: isEmptyObject(this.movie.ID_Series) ? 0 : this.movie.ID_Series
       };
       this.addfav.deletefavorites(media).subscribe(response =>{
