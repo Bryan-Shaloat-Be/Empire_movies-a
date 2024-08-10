@@ -42,4 +42,4 @@ testem.log
 .DS_Store
 Thumbs.db
 .env
-/Server_Asp.net/ServerAsp/appsettings.Development.json
+appsettings.Development.json
