@@ -5,7 +5,7 @@ CREATE TABLE users(
 	ID_User int IDENTITY(1,1) not null,
 	U_Name NVARCHAR(150) not null,
 	Mail NVARCHAR(120) not null, 
-	U_password NVARCHAR(16) not null,
+	U_password NVARCHAR(256) not null,
 	Preferences NVARCHAR(20) not null,
 
 	CONSTRAINT PK_User PRIMARY KEY
