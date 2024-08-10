@@ -22,10 +22,13 @@ export class FavoritespageComponent {
   getfavorites(){
   const token = sessionStorage.getItem('authtoken')  // almacenamos el token para obtener el usuario que ingreso 
     if(token){
-      const decodedToken = jwtDecode(token) as { id: number; };
-      this.favorites.Favorites(decodedToken.id).subscribe(response =>{
+      
+      const decodedToken = jwtDecode(token) as { sub: string; };
+      const ID_User = decodedToken.sub
+
+      this.favorites.Favorites(ID_User).subscribe(response =>{
         console.log('Peliculas y series favoritas obtenidas', response);
-        this.favoritas = response.data
+        this.favoritas = response
       })
     }else{
       console.log('Token vacio');

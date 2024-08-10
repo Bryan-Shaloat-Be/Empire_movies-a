@@ -43,7 +43,7 @@ export class AuthpageComponent implements OnInit{
     {value: 'Terror', viewValue: 'Terror'},
   ]
   get name(){
-    return this.formUserRegister.get('userName');
+    return this.formUserRegister.get('U_Name');
   }
 
   get mail(){
@@ -51,7 +51,7 @@ export class AuthpageComponent implements OnInit{
   }
 
   get password(){
-    return this.formUserRegister.get('password');   // Gets para alerts 
+    return this.formUserRegister.get('U_password');   // Gets para alerts 
   }
 
   get preferences(){
@@ -59,26 +59,26 @@ export class AuthpageComponent implements OnInit{
   }
 
   get mailLogin(){
-    return this.formUserLogin.get('mailLogin');
+    return this.formUserLogin.get('Mail');
   }
 
   get passwordLogin(){
-    return this.formUserLogin.get('passwordLogin');
+    return this.formUserLogin.get('U_password');
   }
 
   constructor(public router: Router, private userService: UserService, private fr: FormBuilder , private cookie: CookieService){}
 
   ngOnInit(): void {
       this.formUserRegister = this.fr.group({
-      'userName': new FormControl('', Validators.required),
+      'U_Name': new FormControl('', Validators.required),
       'mail': new FormControl('',[Validators.required, Validators.email]), // Grupo de formulario con validaciones para el registro de usuarios 
-      'password': new FormControl('',Validators.required),
+      'U_password': new FormControl('',Validators.required),
       'preferences': new FormControl('', Validators.required)
     });
 
     this.formUserLogin = this.fr.group({
-      'mailLogin': new FormControl('', [Validators.required, Validators.email]),
-      'passwordLogin': new FormControl('', Validators.required)
+      'Mail': new FormControl('', [Validators.required, Validators.email]),
+      'U_password': new FormControl('', Validators.required)
     })
   }
 

@@ -10,7 +10,7 @@ namespace ServerAsp.Data
 
         public DatabaseManager(string _StringConnection) => _Connection = _StringConnection;
 
-        public DataTable ExecuteQuery(string query, params SqlParameter[] parameters)
+        public DataTable ExecuteQuery(string query, params SqlParameter[] parameters) // Metodo que permite consultas que devuelven conjunto de resultados
         {
             DataTable dataTable = new DataTable(); //instancia para almacenar datos de consulta
 
@@ -27,6 +27,18 @@ namespace ServerAsp.Data
                 }
             }
             return dataTable;
+        }
+        public int ExecuteNoQuery(string query, params SqlParameter[] parameters) // Metodo que permite consultas que no devuelven conjuntos de datos
+        {
+            using (SqlConnection connection = new SqlConnection(_Connection))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddRange(parameters);
+                    connection.Open();
+                    return command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

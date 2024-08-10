@@ -31,7 +31,7 @@
                 </div>
                 <form [formGroup]="formUserLogin" (ngSubmit)="loginUser()" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                     <div class="pb-2 pt-4">
-                        <input formControlName="mailLogin" type="email" name="mailLogin" id="mailLogin" placeholder="Correo" class="block w-full p-4 text-lg rounded-sm bg-black">
+                        <input formControlName="Mail" type="email" name="Mail" id="Mail" placeholder="Correo" class="block w-full p-4 text-lg rounded-sm bg-black">
                     </div>
                     <div class="bg-red-600" *ngIf="mailLogin?.touched && mailLogin?.invalid">
                         <span *ngIf="mailLogin?.errors?.['required']">
@@ -42,7 +42,7 @@
                         </span>
                     </div>
                     <div class="pb-2 pt-4">
-                        <input formControlName="passwordLogin" class="block w-full p-4 text-lg rounded-sm bg-black" type="password" name="passwordLogin" id="passwordLogin" placeholder="Contrasena">
+                        <input formControlName="U_password" class="block w-full p-4 text-lg rounded-sm bg-black" type="password" name="U_password" id="U_password" placeholder="Contrasena">
                     </div>
                     <div class="bg-red-600" *ngIf="passwordLogin?.touched && passwordLogin?.invalid">
                         <span *ngIf="passwordLogin?.errors?.['required']">
@@ -106,7 +106,7 @@
             
             <form [formGroup]="formUserRegister" (ngSubmit)="registerUser()"  class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 <div class="pb-2 pt-4">
-                    <input formControlName="userName" type="text" name="userName" id="userName" placeholder="Nombre" class="block w-full p-4 text-lg rounded-sm bg-black" >
+                    <input formControlName="U_Name" type="text" name="U_Name" id="U_Name" placeholder="Nombre" class="block w-full p-4 text-lg rounded-sm bg-black" >
                 </div>
                 <div class="bg-red-600" *ngIf="name?.touched && name?.invalid">
                     <span *ngIf="name?.errors?.['required']">
@@ -125,7 +125,7 @@
                     </span>
                 </div>
                 <div class="pb-2 pt-4">
-                    <input formControlName="password" type="password" name="password" id="password" placeholder="Contrasena"  class="block w-full p-4 text-lg rounded-sm bg-black">
+                    <input formControlName="U_password" type="U_password" name="U_password" id="U_password" placeholder="Contrasena"  class="block w-full p-4 text-lg rounded-sm bg-black">
                 </div>
                 <div class="bg-red-600" *ngIf="password?.touched && password?.invalid">
                     <span *ngIf="password?.errors?.['required']">

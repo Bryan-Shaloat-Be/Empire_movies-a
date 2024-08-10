@@ -1,6 +1,8 @@
 import { Component, Input, Renderer2 } from '@angular/core';
 import { AddfavoritesService } from './services/addfavorites.service';
 import { jwtDecode } from 'jwt-decode';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-card-movie',
@@ -12,7 +14,7 @@ export class CardMovieComponent {
 
   menu: boolean = false;
 
-  constructor(private renderer: Renderer2, private addfav: AddfavoritesService){}
+  constructor(private renderer: Renderer2, private addfav: AddfavoritesService, private router: Router){}
 
   onclickmenu() {
     this.menu = !this.menu;
@@ -38,14 +40,23 @@ export class CardMovieComponent {
   }
 
   deletefavorites(){
+
+    function isEmptyObject(obj: any): boolean {
+      return obj && Object.keys(obj).length === 0 && obj.constructor === Object; // si existe un objeto vacio dejar 0 para completar la peticion
+    }
+
     const token = sessionStorage.getItem('authtoken'); 
     if(token){
-      const decodedToken = jwtDecode(token) as { id: number; };
-      const media = {ID_User: decodedToken.id, ID_Movie: this.movie.ID_Movie !== undefined? this.movie.ID_Movie: null, ID_Series: this.movie.ID_Series !== undefined? this.movie.ID_Series: null}
-      console.log(media)
+      const decodedToken = jwtDecode(token) as { sub: string; };
+      const idUser = decodedToken.sub
+      const media = {
+        ID_User: idUser,
+        ID_Movie: isEmptyObject(this.movie.ID_Movie )? 0 : this.movie.ID_Movie,
+        ID_Series: isEmptyObject(this.movie.ID_Series) ? 0 : this.movie.ID_Series
+      };
       this.addfav.deletefavorites(media).subscribe(response =>{
         console.log('Peliculas o series eliminadas de favoritos', response);
-      })
+      });
     }else{
       console.log('Token vacio');
     }

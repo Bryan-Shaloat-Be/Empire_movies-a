@@ -1,10 +1,10 @@
 namespace ServerAsp.Models
 {
-    public class Favorites
+    public class FavoritesM
     {
         public int ID_Favorites { get; set;}
         public int ID_User { get; set;}
-        public int ID_Movies { get; set;}
+        public int ID_Movie { get; set;}
         public int ID_Series { get; set;}
     }
 }

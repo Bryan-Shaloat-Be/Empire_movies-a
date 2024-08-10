@@ -34,14 +34,13 @@ export class CategorypageComponent implements OnInit, OnDestroy {
 
   GetMoviesCategory(Category: any){
     this.categoryFilter.getMoviesCategory(Category).subscribe(response=>{ // obtener las peliculas
-    this.MoviesC = response.data
+    this.MoviesC = response
     })
   }
 
   GetSeriesCategory(Category: any){
     this.categoryFilter.getSeriesCategory(Category).subscribe(response =>{
-      this.SeriesC = response.data
-      console.log(response)
+      this.SeriesC = response
     })
   }
 }
