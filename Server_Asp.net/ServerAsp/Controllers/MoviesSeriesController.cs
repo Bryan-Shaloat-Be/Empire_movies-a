@@ -20,7 +20,18 @@ namespace ServerAsp.Controllers
         [HttpGet("Movies")]
         public IActionResult Movies()
         {
-            string query = "SELECT * FROM movies";
+            string query = @"SELECT 
+                                m.ID_Movie,
+                                m.Title,
+                                m.M_Description,
+                                m.M_Length,
+                                m.URL_img,
+                                c.Category
+                            FROM movies m
+                            LEFT JOIN 
+                                MoviesCategorys mc ON m.ID_Movie = mc.ID_Movie
+                            LEFT JOIN
+                                Categorys c ON mc.ID_Category = c.ID_Category;";
             var data = _databaseManager.ExecuteQuery(query);
 
             var DesData = new List<Dictionary<string, object>>();
@@ -40,7 +51,18 @@ namespace ServerAsp.Controllers
         [HttpGet("Series")]
         public IActionResult Series()
         {
-            string query = "SELECT * FROM Series";
+            string query = @"SELECT 
+                                s.ID_Series,
+                                s.Title,
+                                s.S_Description,
+                                s.S_Length,
+                                s.URL_img,
+                                c.Category
+                            FROM Series s
+                            LEFT JOIN 
+                                SeriesCategorys sc ON s.ID_Series = sc.ID_Series
+                            LEFT JOIN
+                                Categorys c ON sc.ID_Category = c.ID_Category";
             var data = _databaseManager.ExecuteQuery(query);
 
             var DesData = new List<Dictionary<string, object>>();

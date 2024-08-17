@@ -32,13 +32,10 @@ namespace ServerAsp.Controllers
                     f.ID_User,
                     p.ID_Movie, 
                     s.ID_Series, 
-                    CASE 
-                        WHEN p.ID_Movie IS NOT NULL THEN 'movies'
-                        WHEN s.ID_Series IS NOT NULL THEN 'Series'
-                    END AS ContentType,
+                    CASE WHEN p.ID_Movie IS NOT NULL THEN'movies'WHEN s.ID_Series IS NOT NULL THEN 'Series' END AS ContentType,
                     COALESCE(p.Title, s.Title) AS Title,
                     COALESCE(p.M_Description, s.S_Description) AS M_Description,
-                    COALESCE(p.Category, s.Category) AS Category,
+                    COALESCE(c.Category,'') AS Category, -- Ajustado para incluir la categoría
                     COALESCE(p.M_Length, s.S_Length) AS M_Length,
                     COALESCE(p.URL_img, s.URL_img) AS URL_img
                 FROM 
@@ -47,8 +44,14 @@ namespace ServerAsp.Controllers
                     movies p ON f.ID_Movie = p.ID_Movie
                 LEFT JOIN 
                     Series s ON f.ID_Series = s.ID_Series
+                LEFT JOIN 
+                    MoviesCategorys mc ON p.ID_Movie = mc.ID_Movie
+                LEFT JOIN 
+                    SeriesCategorys sc ON s.ID_Series = sc.ID_Series
+                LEFT JOIN 
+                    Categorys c ON COALESCE(mc.ID_Category, sc.ID_Category) = c.ID_Category
                 WHERE 
-                    f.ID_User = @ID_User";
+                    f.ID_User =2;";
             var parameters = new[]
             {
                 new SqlParameter("@ID_User", ID_User)
@@ -78,7 +81,17 @@ namespace ServerAsp.Controllers
                 new SqlParameter("@ID_Movie", (object)favoritesM.ID_Movie ?? DBNull.Value),
                 new SqlParameter("@ID_Series", (object)favoritesM.ID_Series ?? DBNull.Value)
             };
-            var data = _databaseManager.ExecuteNoQuery(query, parameters);
+
+            try
+            {
+                var data = _databaseManager.ExecuteNoQuery(query, parameters);
+            }
+            catch (SqlException ex) when (ex.Number == 2601)
+            {
+                
+                Console.WriteLine("error la Pelicula o serie ya existe en tus favoritos");
+                return StatusCode(500, "error la Pelicula o serie ya existe en tus favoritos" );
+            }
             return Ok("Aniadido a favorito");
         }
 

@@ -21,7 +21,14 @@ namespace ServerAsp.Controllers
         [HttpGet("Movies")]
         public IActionResult CategorysMovies([FromQuery] Categorys categorys)
         {
-            string query = "SELECT * FROM movies WHERE Category = @Category ";
+            string query = @"
+                SELECT m.*,
+                       c.Category
+                FROM movies m
+                JOIN MoviesCategorys cm ON m.ID_Movie = cm.ID_Movie
+                JOIN Categorys c ON cm.ID_Category = c.ID_Category
+                WHERE c.Category = @Category;";
+
             var parameters = new[]
             {
                 new SqlParameter("@Category", categorys.Category)
@@ -45,7 +52,13 @@ namespace ServerAsp.Controllers
         [HttpGet("Series")]
         public IActionResult CategorysSeries([FromQuery] Categorys categorys)
         {
-            var query = "SELECT * FROM Series WHERE Category = @Category";
+            var query = @"
+                    SELECT s.*,
+                           c.Category
+                    FROM Series s
+                    JOIN SeriesCategorys cs on s.ID_Series = cs.ID_Series
+                    JOIN Categorys c on cs.ID_Category = c.ID_Category
+                    WHERE c.Category = @Category";
             var parameters = new[]
             {
                 new SqlParameter("@Category", categorys.Category)
