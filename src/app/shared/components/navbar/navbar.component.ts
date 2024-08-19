@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(){
-    this.cookieService.delete('token', '/');  // Usar el mismo 'path' que al crear la cookie
+    this.cookieService.delete('token', '/');
     console.log('Sesión cerrada, cookie eliminada');
     this.router.navigate(['/auth/login']);  
   }
