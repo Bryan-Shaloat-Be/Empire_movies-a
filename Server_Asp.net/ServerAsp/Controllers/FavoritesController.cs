@@ -68,7 +68,7 @@ namespace ServerAsp.Controllers
                 }
                 DesData.Add(favorite);
             }
-            return Ok(DesData);
+            return Ok(new {DesData});
         }
 
         [HttpPost("Add")]
@@ -90,9 +90,9 @@ namespace ServerAsp.Controllers
             {
                 
                 Console.WriteLine("error la Pelicula o serie ya existe en tus favoritos");
-                return StatusCode(500, "error la Pelicula o serie ya existe en tus favoritos" );
+                return StatusCode(500, new { message = "error la Pelicula o serie ya existe en tus favoritos"});
             }
-            return Ok("Aniadido a favorito");
+            return Ok(new { message = "Aniadido a favorito"});
         }
 
         [HttpPost("Delete")]
@@ -107,7 +107,7 @@ namespace ServerAsp.Controllers
             };
 
             var data = _databaseManager.ExecuteNoQuery(query, parameters);
-            return Ok("Favorito eliminado");
+            return Ok(new {message = "Favorito eliminado"});
         }
     }
 }

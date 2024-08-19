@@ -75,22 +75,11 @@
                         <a *ngIf="item.name === 'Historial' || item.name === 'Favoritos'" [routerLink]="item.router" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-orange-600 dark:hover:text-white">{{item.name}}</a>
                         <hr *ngIf="item.name === 'Historial' || item.name === 'Favoritos'" class="border-gray-200 mx-4">
                     </div>
-                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-orange-600 dark:hover:text-white">
+                    <a routerLink="/auth/login" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-orange-600 dark:hover:text-white" (click)="logout()">
                         Cerrar Sesion
                     </a>
                 </div>
             </div>
-            <button routerLink="/auth/login" class="text-[#faf9f7]">  
-                <svg  xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  
-                    viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  
-                    stroke-linecap="round"  stroke-linejoin="round"  
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-login">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M15 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
-                    <path d="M21 12h-13l3 -3" />
-                    <path d="M11 15l-3 -3" />
-                </svg>
-            </button>
         </div>
     </div>
 

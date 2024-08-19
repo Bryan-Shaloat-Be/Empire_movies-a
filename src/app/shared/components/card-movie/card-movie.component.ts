@@ -24,6 +24,7 @@ export class CardMovieComponent {
       this.renderer.removeClass(document.body, 'no-scroll');
     }
   }
+
   addTofavorites(){
     const token = sessionStorage.getItem('authtoken')
     if(token){
@@ -32,8 +33,13 @@ export class CardMovieComponent {
       const idUser = decodedToken.sub
       const media = {ID_User: idUser, ID_Movie: this.movie.ID_Movie !== undefined? this.movie.ID_Movie: null, ID_Series: this.movie.ID_Series !== undefined? this.movie.ID_Series: null}
       console.log(media)
-      this.addfav.addfavorites(media).subscribe(response =>{
-        console.log('Peliculas o series anadida a favoritos', response);
+      this.addfav.addfavorites(media).subscribe({
+        next: response => {
+          alert('Se agrego a tus favoritos');
+        },
+        error: (error) => {
+          alert('Ya se encuentra en favoritos');
+        }
       })
     }else{
       console.log('Token vacio');
@@ -55,8 +61,12 @@ export class CardMovieComponent {
         ID_Movie: isEmptyObject(this.movie.ID_Movie )? 0 : this.movie.ID_Movie, // solo para delete
         ID_Series: isEmptyObject(this.movie.ID_Series) ? 0 : this.movie.ID_Series
       };
-      this.addfav.deletefavorites(media).subscribe(response =>{
-        console.log('Peliculas o series eliminadas de favoritos', response);
+      this.addfav.deletefavorites(media).subscribe({ 
+        next: response => {
+          console.log('Peliculas o series eliminadas de favoritos', response);
+          alert('Se elimino de favoritos');
+          window.location.reload();
+        }
       });
     }else{
       console.log('Token vacio');

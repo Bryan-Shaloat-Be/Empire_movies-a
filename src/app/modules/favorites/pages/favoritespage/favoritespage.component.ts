@@ -27,7 +27,6 @@ export class FavoritespageComponent {
       const ID_User = decodedToken.sub
 
       this.favorites.Favorites(ID_User).subscribe(response =>{
-        console.log('Peliculas y series favoritas obtenidas', response);
         this.favoritas = response
       })
     }else{
