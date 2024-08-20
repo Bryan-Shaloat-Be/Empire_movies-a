@@ -51,7 +51,7 @@ namespace ServerAsp.Controllers
                 LEFT JOIN 
                     Categorys c ON COALESCE(mc.ID_Category, sc.ID_Category) = c.ID_Category
                 WHERE 
-                    f.ID_User =2;";
+                    f.ID_User =@ID_User;";
             var parameters = new[]
             {
                 new SqlParameter("@ID_User", ID_User)
@@ -68,7 +68,7 @@ namespace ServerAsp.Controllers
                 }
                 DesData.Add(favorite);
             }
-            return Ok(new {DesData});
+            return Ok(DesData);
         }
 
         [HttpPost("Add")]

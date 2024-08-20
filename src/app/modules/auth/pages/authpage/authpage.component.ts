@@ -108,7 +108,6 @@ export class AuthpageComponent implements OnInit{
   loginUser(){  // Uso del servicio para iniciar sesion 
     const userData = this.formUserLogin.value
     this.userService.loginservice(userData).subscribe(response =>{
-      console.log('Usuario ingreso correctamente', response);
       this.tokensesion = response;
       this.cookie.set('token', this.tokensesion, 15 / (24 * 60),'/')  // cookie del token 
       this.router.navigate(['/','movies'])
