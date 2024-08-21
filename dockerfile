@@ -1,15 +1,17 @@
-FROM node:18doc AS build
-
+FROM node:20.14.0 AS dev-deps
 WORKDIR /app
-
-COPY package*.json ./
+COPY package*.json package.json
 RUN npm install
 
+
+FROM node:20.14.0 AS build
+WORKDIR /app
+COPY --from=dev-deps /app/node_modules ./node_modules
 COPY . .
+RUN npm run build
 
-RUN npm run build --prod
-
-FROM nginx:alpine
-COPY --from=build /app/dist/empire_movies-a /usr/share/nginx/html
+FROM nginx:1.23.3 AS prod
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=build /app/dist/empire_movies-a/browser /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+CMD [ "nginx","-g","daemon off;" ]
