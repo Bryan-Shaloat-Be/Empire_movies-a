@@ -1,0 +1,23 @@
+apiVersion: app/v1
+kind: Deployment
+metadata: 
+  name: Back
+  namespace: dev-Backend
+  labels:
+    app: Back
+spec:
+  replicas: 4
+  selector:
+    matchlabels:
+      app: Back
+  template:
+    metadata:
+      labels:
+        app: Back
+    spec:
+      containers:
+        name: Back
+        image: backend
+        imagePullPolicy: ifNotPresent
+        ports: 
+          containerPort: 70
