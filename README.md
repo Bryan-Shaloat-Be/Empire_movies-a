@@ -28,7 +28,7 @@ External libraries
 
 - [Tailwind css -- version: 3.4.4](https://tailwindcss.com/)
 
-Backend requirements and dependencies
+Backend express requirements and dependencies
 
 - [Express -- version: 4.19.2](https://expressjs.com/en/starter/installing.html)
 
@@ -45,6 +45,24 @@ Backend requirements and dependencies
 - [sequelize -- version: 6.37.3](https://sequelize.org/)
 
 - [tedious -- version: 18.3.0](https://www.npmjs.com/package/tedious)
+
+Backend ASP.Net core requirements and dependencies
+
+- [Mcr.microsoft.com dotnet sdk:8.0](https://dotnet.microsoft.com/es-es/download/dotnet/8.0)
+
+- [cors -- version: 2.8.5](https://www.npmjs.com/package/cors)
+
+- [Microsoft.AspNetCore.Authentication.JwtBearer -- version: 8.0.7](https://learn.microsoft.com/es-es/dotnet/api/microsoft.aspnetcore.authentication.jwtbearer?view=aspnetcore-8.0)
+
+- [Microsoft.Data.SqlClient -- version: 5.2.1](https://www.nuget.org/packages/Microsoft.Data.SqlClient)
+
+- [Microsoft.AspNetCore.OpenApi -- version: 8.0.7](https://www.nuget.org/packages/Microsoft.AspNetCore.OpenApi)
+
+- [Microsoft.EntityFrameworkCore.SqlServer -- version:  8.0.7](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/)
+
+- [Microsoft.EntityFrameworkCore.Tools -- version:  8.0.7](https://www.nuget.org/packages)
+
+- [Swashbuckle.AspNetCore" -- version:  6.4.0](https://www.nuget.org/packages/Swashbuckle.AspNetCore)
 
 
 
@@ -127,40 +145,39 @@ Tables
 - Categories
 ## Backend 
 
-
 A backend was created with APIs that are consumed by the client (angular) of the project.  It contains among them the entire login system, favorites, view Movies and series and filters of categories. [YOU NEED TO USE DATABASE TO STAR THE PROYECT. THE PROYECT HAVE GUARDS TO PROTECT CLIENT ROUTES]
 
 Users
 
-The entire authentication and registration and login system is implemented, including session times, verification token and guards to protect client routes
+The entire authentication and registration and login system is implemented, including session times, verification token and guards to protect client routes (this is for ASP.net core backend)
 ```bash
-POST/ register/register
+POST/ api/RegisterUser <--- register
 ```
 ```bash
-POST/ register/sesion  <--- login
+GET/ api/RegisterUser  <--- login
 ```
 
 Favorites
 
 The entire system to add, delete and show each user's favorites
 ```bash
-GET/ favorites/favorites
+GET/ api/Favorites
 ```
 ```bash
-POST/ favorites/Addfavorites
+POST/ api/Favorites/add
 ```
 ```bash
-POST/ favorites/deletefavorites
+POST/ api/Favorites/delete
 ```
 
 Media
 
 The entire system to show all movies and series
 ```bash
-GET/ movies/movies
+GET/ api/Media/Movies
 ```
 ```bash
-GET/ movies/series
+GET/ api/Media/Series
 ```
 
 Category
@@ -168,11 +185,27 @@ Category
 The entire system to show all movies and series with filters of categories
 
 ```bash
-GET/ category/MoviesC
+GET/ api/Category/Movies
 ```
 ```bash
-GET/ category/SeriesC
+GET/ api/Category/Series
 ```
+## Kubernetes and docker
+
+Docker images
+
+- FrontendImage -- Angular and npm
+- BackendImage  -- ASP.NET CORE
+
+Kubernetes Files/Cofiguration/Yaml
+
+- NameSpaceEmpire 
+- DeployFront
+- DeployBack
+- Ingress
+- Services
+- LimitRange
+
 ## Process Sprint 4
 
 Data Base
@@ -187,6 +220,26 @@ Backend
 A small system was created to add favorites, delete and view. 
 The basic consumption to show all movies and series, as well as a category filter.  Everything is already connected and working together with the project. 
 Client --- Server -- Database
+
+## Process Sprint 6
+
+
+Database
+
+The normalize to database was easy because the structure of my database is small and did not contain many columns that would allow it to be broken down into more tables except for the category table, which was the change I made for normalization. 
+The normalization of the database seems fantastic to me. I think it helps a lot with the management of the tables and the records themselves to avoid overwrites and more, so it is something that I will be using from here to the future :)
+
+Backend ASP.net
+
+The process to migrate or create a new backend with C# ASP.NET CORE was simple since all the configuration was ready on the front end to consume APIs. These APIs were easy to implement even with slight improvements in them and a better structure than in Express. The complicated thing at the beginning was understanding the entire ASP.net mvc structure since it was different from Express and even from PHP with Laravel, which is something I usually use for web creation. In the end I liked the structure more than express and I think I would be using it to create APIs in future projects.
+
+Kubernetes and Docker
+
+The use of these technologies was something new for me and challenging. The use of Docker was essential to understand Kubernetes, so it took me time to learn Docker and everything about containers and images. I managed to create the images of my project (Backend and Frontend) and run them effectively in the containers.
+
+I started with Kubernetes, the configuration was not complicated to create, the tools it provides are fantastic, the management seemed very good to me from what I understand the use of this technology for horizontal scaling in the future. I had some complications with the port issue but thanks to my firewall that did not allow me to access certain ports or minikube IP. In the same way, the configuration for the operation and management of the application with kubernetes was achieved.
+
+
 ## Sprint Review 2 and 3
 
 | What did I do right? | what I didn't do well| What can i do differently? 
@@ -199,10 +252,35 @@ Client --- Server -- Database
 |----|-------------------|------|
 |The complete implementation of express with the database as well as the consumption of the database in the angular project (client)|Problems with specs or tests and middleware|Be careful with tests and improve alerts and messages to rectify that an action such as registrations or logins was carried out|
 
-## Problems 
+## Sprint Review 6
 
-Have a problem with firsts route you need to enter at http://localhost:4200/auth/login not at http://localhost:4200
+| What did I do right? | what I didn't do well| What can i do differently? 
+|----|-------------------|------|
+| Implent all api with ASP.NET CORE was succesfully and dont have problems to scale or Implent more apis and functions. Docker configurations image was succesfully. Kubernetes configurations was succesfully| I had problems with minikube and the use of its IP and ports to observe the application so I took some alternatives to make sure it worked which is why for it to run at least on my PC it is necessary to use minikube tunnels and some others details| I think that at the beginning of creating a complete backend, the normalization of the database should be taken into consideration so as not to work twice. 
+Continue learning Kubernetes and Docker to achieve the most optimal configurations
+
+## Future improvements
+
+The proyect have some section to future implementations like the history, the use of roles in the application, a section to place all the seasons and movies of the series.  
+
+The creation of the section to play the movies and series that you want to see is also expected. 
+
+Possible changes to the navbar to improve the UI/UX and give a better user experience.
+
+
+## problems and Warnings
+
+Warnings
+
+- Better middleware needs to be implemented for greater security.
+- Carefull with minikube configuration to use kubernetes.
+- Carefull with htttp request in angular
+
+problems
+
+- Have a problem with firsts route you need to enter at http://localhost:4200/auth/login not at http://localhost:4200
 ## Build
+
 
 Run to build the project. The build artifacts will be stored in the dist/ directory.
 ```bash
