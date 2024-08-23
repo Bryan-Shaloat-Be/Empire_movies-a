@@ -256,8 +256,7 @@ I started with Kubernetes, the configuration was not complicated to create, the 
 
 | What did I do right? | what I didn't do well| What can i do differently? 
 |----|-------------------|------|
-| Implent all api with ASP.NET CORE was succesfully and dont have problems to scale or Implent more apis and functions. Docker configurations image was succesfully. Kubernetes configurations was succesfully| I had problems with minikube and the use of its IP and ports to observe the application so I took some alternatives to make sure it worked which is why for it to run at least on my PC it is necessary to use minikube tunnels and some others details| I think that at the beginning of creating a complete backend, the normalization of the database should be taken into consideration so as not to work twice. 
-Continue learning Kubernetes and Docker to achieve the most optimal configurations
+| Implent all api with ASP.NET CORE was succesfully and dont have problems to scale or Implent more apis and functions. Docker configurations image was succesfully. Kubernetes configurations was succesfully| I had problems with minikube and the use of its IP and ports to observe the application so I took some alternatives to make sure it worked which is why for it to run at least on my PC it is necessary to use minikube tunnels and some others details| I think that at the beginning of creating a complete backend, the normalization of the database should be taken into consideration so as not to work twice.Continue learning Kubernetes and Docker to achieve the most optimal configurations
 
 ## Future improvements
 
