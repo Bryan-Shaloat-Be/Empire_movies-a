@@ -124,6 +124,7 @@ Tables
 - Chapers
 - History
 - Favorites
+- Categories
 ## Backend 
 
 
