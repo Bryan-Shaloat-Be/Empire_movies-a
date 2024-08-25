@@ -296,6 +296,7 @@ The proyect have some sections to future implementations to improve the proyect.
 - Season and chapers section
 - Section to play and wach the movies and series
 - Improve UI/UX to give better user expirence
+- Improve section of recomendations
 
 ## Problems and Warnings
 
