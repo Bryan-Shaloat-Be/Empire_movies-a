@@ -95,9 +95,9 @@ Descktop
 
 - [Card movie Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Tarjeta-Pelicula-Empire-Movies.PNG)
 
-- [Login Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Login-Empire-Movies.PNG) <--- NEW
+- [Login Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Login-Empire-Movies.PNG) 
 
-- [Register Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Register-Empire_movies.PNG) <--- NEW
+- [Register Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Register-Empire_movies.PNG) 
 
 - [Menu-category Descktop ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Categorias-menu-Empire-movies.PNG)
 
@@ -105,11 +105,11 @@ Movil-Resposive
 
 - [Home Movil-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Inicio-Resposivo-Empire-Movies.PNG)
 
-- [Menu Movil-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Menu-Responsivo-Empire-Movies.PNG) < -- NEW
+- [Menu Movil-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Menu-Responsivo-Empire-Movies.PNG) 
 
-- [Login Movil-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Login-resposivo-Empire-movies.PNG) < -- NEW
+- [Login Movil-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Login-resposivo-Empire-movies.PNG) 
 
-- [Register Movil-Resposive](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Register-Responsivo-Empire_movies.PNG) <-- NEW
+- [Register Movil-Resposive](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/Register-Responsivo-Empire_movies.PNG) 
 
 - [Card movie Movile-Resposive ](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/proyect%20img/tarjeta-resposivo-pelicula.PNG)
 
