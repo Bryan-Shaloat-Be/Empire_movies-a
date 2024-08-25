@@ -210,6 +210,8 @@ minikube addons enable ingress
 ```bash
 minikube addons enable metrics-server
 ```
+Kubernetes yaml list.
+
 - NameSpaceEmpire 
 - DeployFront
 - DeployBack
