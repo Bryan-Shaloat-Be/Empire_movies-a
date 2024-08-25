@@ -131,7 +131,7 @@ Movil-Resposive
 
 ## Test images
 
-- [Test](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/New%20test-Results-Sprint-4.jpeg)
+- [Test](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/Testing.PNG)
 
 - [Code Coverage](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/Code-Coverage-Testing.PNG)
 
