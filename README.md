@@ -133,7 +133,7 @@ Movil-Resposive
 
 - [Test](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/New%20test-Results-Sprint-4.jpeg)
 
-- [Code Coverage](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/New%20test-Code-Coverage-Sprint-4.jpeg)
+- [Code Coverage](https://github.com/Bryan-Shaloat-Be/Empire_movies-a/blob/development/public/Proyect%20img/Test/Code-Coverage-Testing.PNG)
 
 ## Database Diagram
 
