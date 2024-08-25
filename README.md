@@ -274,12 +274,13 @@ I started with Kubernetes, the configuration was not complicated to create, the 
 
 ## Future improvements
 
-The proyect have some section to future implementations like the history, the use of roles in the application, a section to place all the seasons and movies of the series.  
+The proyect have some section to future implementations to improve the proyect.
 
-The creation of the section to play the movies and series that you want to see is also expected. 
-
-Possible changes to the navbar to improve the UI/UX and give a better user experience.
-
+- History Section
+- Roles on users in the application
+- Season and chapers section
+- Section to play and wach the movies and series
+- Improve UI/UX to give better user expirence
 
 ## Problems and Warnings
 
