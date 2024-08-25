@@ -267,13 +267,13 @@ The creation of the section to play the movies and series that you want to see i
 Possible changes to the navbar to improve the UI/UX and give a better user experience.
 
 
-## problems and Warnings
+## Problems and Warnings
 
 Warnings
 
 - Better middleware needs to be implemented for greater security.
 - Carefull with minikube configuration to use kubernetes.
-- Carefull with htttp request in angular
+- Carefull with http request in angular
 
 problems
 
