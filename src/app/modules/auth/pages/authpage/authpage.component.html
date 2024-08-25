@@ -125,7 +125,7 @@
                     </span>
                 </div>
                 <div class="pb-2 pt-4">
-                    <input formControlName="U_password" type="U_password" name="U_password" id="U_password" placeholder="Contrasena"  class="block w-full p-4 text-lg rounded-sm bg-black">
+                    <input formControlName="U_password" type="password" name="U_password" id="U_password" placeholder="Contrasena"  class="block w-full p-4 text-lg rounded-sm bg-black">
                 </div>
                 <div class="bg-red-600" *ngIf="password?.touched && password?.invalid">
                     <span *ngIf="password?.errors?.['required']">

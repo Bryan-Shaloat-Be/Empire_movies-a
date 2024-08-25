@@ -25,7 +25,7 @@ namespace ServerAsp.Controllers
         }
 
         [HttpPost]
-        public IActionResult register([FromBody] User user)
+        public IActionResult register([FromBody] User user) // Regiostrar un usuario
         {
             var hashedpassword = _passwordHasher.HashPassword(User, user.U_password);
             string query = " INSERT INTO users (U_Name, Mail, U_password, Preferences) VALUES (@U_Name, @Mail, @U_Password, @Preferences)";
@@ -46,7 +46,7 @@ namespace ServerAsp.Controllers
         }
 
         [HttpGet]
-        public IActionResult login([FromQuery] Login login)
+        public IActionResult login([FromQuery] Login login)  // autenticacion y inicio de sesion 
         {
             string query = "SELECT * FROM users WHERE Mail = @Mail";
             var parameters = new[]

@@ -42,4 +42,8 @@ describe('NavbarComponent', () => {
     component.filtercategory(category); // verificar la navegacion y iniciar el set
     expect(component.router.navigate).toHaveBeenCalledWith(['/category']) //esperamos el cambios de ruta verdadero
   });
+
+  it('Logout verification', () => {
+    component.logout();
+  });
 });

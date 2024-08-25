@@ -19,7 +19,7 @@ namespace ServerAsp.Controllers
         }
 
         [HttpGet("Movies")]
-        public IActionResult CategorysMovies([FromQuery] Categorys categorys)
+        public IActionResult CategorysMovies([FromQuery] Categorys categorys)  //obtener peliculas por categoria
         {
             string query = @"
                 SELECT m.*,
@@ -50,7 +50,7 @@ namespace ServerAsp.Controllers
         }
 
         [HttpGet("Series")]
-        public IActionResult CategorysSeries([FromQuery] Categorys categorys)
+        public IActionResult CategorysSeries([FromQuery] Categorys categorys)  //obtener series por categoria
         {
             var query = @"
                     SELECT s.*,

@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngularClient",
         builder =>
         {
-            builder.WithOrigins("http://localhost:4200") // URL de angular
+            builder.WithOrigins("http://localhost:4200") // URL de tu aplicación Angular
                    .AllowAnyHeader()
                    .AllowAnyMethod();
         });
@@ -54,10 +54,12 @@ builder.Services.AddAuthentication(x =>
 
 var app = builder.Build();
 
-app.UseHttpsRedirection(); // middleware
-app.UseCors("AllowAngularClient");
+app.UseCors("AllowAngularClient"); // Aplicar la política de CORS
 
-// Aquí puedes agregar tus propios endpoints
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapGet("/", () => "API funcionando correctamente");
 app.MapControllers();
 app.Run();

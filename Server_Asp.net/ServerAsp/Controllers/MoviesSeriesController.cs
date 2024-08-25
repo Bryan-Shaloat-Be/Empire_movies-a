@@ -18,7 +18,7 @@ namespace ServerAsp.Controllers
 
         
         [HttpGet("Movies")]
-        public IActionResult Movies()
+        public IActionResult Movies()  // Obtener todas las peliculas
         {
             string query = @"SELECT 
                                 m.ID_Movie,
@@ -49,7 +49,7 @@ namespace ServerAsp.Controllers
         }
 
         [HttpGet("Series")]
-        public IActionResult Series()
+        public IActionResult Series()  //Obtener todas las series
         {
             string query = @"SELECT 
                                 s.ID_Series,

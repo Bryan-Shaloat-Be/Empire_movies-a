@@ -52,6 +52,5 @@ describe('CardMovieComponent', () => {
 
   it('Verificacion de la funcion de delete en favoritos', ()=>{
     component.deletefavorites()
-
   })
 });

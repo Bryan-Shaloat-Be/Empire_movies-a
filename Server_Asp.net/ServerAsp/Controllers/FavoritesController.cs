@@ -24,7 +24,7 @@ namespace ServerAsp.Controllers
         }
 
         [HttpGet("Favorites")]
-        public IActionResult GetFavorites([FromQuery] int ID_User)
+        public IActionResult GetFavorites([FromQuery] int ID_User) //obtener favoritos del usuarion autenticado
         {
             string query = @"
                 SELECT 
@@ -72,7 +72,7 @@ namespace ServerAsp.Controllers
         }
 
         [HttpPost("Add")]
-        public IActionResult AddFavorites([FromBody] FavoritesM favoritesM)
+        public IActionResult AddFavorites([FromBody] FavoritesM favoritesM) // Agregar a favoritos
         {
             string query = "INSERT INTO favorites(ID_User, ID_Movie, ID_Series) VALUES (@ID_User, @ID_Movie,@ID_Series)";
             var parameters = new []
@@ -96,7 +96,7 @@ namespace ServerAsp.Controllers
         }
 
         [HttpPost("Delete")]
-        public IActionResult DeleteFavorites([FromBody] FavoritesM favoritesM)
+        public IActionResult DeleteFavorites([FromBody] FavoritesM favoritesM)  // Eliminar de favoritos
         {
             string query = "DELETE FROM Favorites WHERE ID_User = @ID_User AND ((ID_Movie IS NOT NULL AND ID_Movie = @ID_Movie) OR (ID_Series IS NOT NULL AND ID_Series = @ID_Series))";
             var parameters = new []

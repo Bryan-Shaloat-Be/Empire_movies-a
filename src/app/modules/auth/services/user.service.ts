@@ -9,6 +9,7 @@ import jwtDecode from 'jwt-decode';
 export class UserService {
   private apiUrl = 'http://localhost:3000/register'; // Express api
   private apiUrl2 = 'http://localhost:5135/api/RegisterUser'; //ASP.net core api/ Register User
+  private apiUrl3 = 'http://back.empire.com/api/RegisterUser' // prueba para kubernetes
   private token: string = ''
 
   constructor(private http: HttpClient) { }
