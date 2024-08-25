@@ -68,7 +68,7 @@ Backend ASP.Net core requirements and dependencies
 
 ## Installation the project
 
- 
+ Angular.
 1. You need to clone the proyect (repository)
 
 2. Navigate on you terminal to the folder proyect
@@ -83,6 +83,21 @@ npm install
 4. Run de proyect
 ```bash
 ng serve
+```
+ASP.Net core
+1. You need to clone the proyect (repository)
+
+2. Navigate on you terminal to the folder proyect
+```bash
+cd Server_ASP.net/ServerAsp
+```
+3. Navigate on you terminal to the folder proyect
+```bash
+install all dependencies with dotnet
+```
+4. Run the proyect in other terminal 
+```bash
+dotnet run 
 ```
 
 
@@ -274,7 +289,7 @@ I started with Kubernetes, the configuration was not complicated to create, the 
 
 ## Future improvements
 
-The proyect have some section to future implementations to improve the proyect.
+The proyect have some sections to future implementations to improve the proyect.
 
 - History Section
 - Roles on users in the application
