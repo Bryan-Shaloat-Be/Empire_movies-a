@@ -199,12 +199,24 @@ Docker images
 
 Kubernetes Files/Cofiguration/Yaml
 
+You can use a minikube to test the project. Requirements you must have to test with minikube
+
+```bash
+minikube 
+```
+```bash
+minikube addons enable ingress
+```
+```bash
+minikube addons enable metrics-server
+```
 - NameSpaceEmpire 
 - DeployFront
 - DeployBack
 - Ingress
 - Services
 - LimitRange
+- Horizontal Autoscaler
 
 ## Process Sprint 4
 
