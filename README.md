@@ -91,7 +91,7 @@ ASP.Net core
 ```bash
 cd Server_ASP.net/ServerAsp
 ```
-3. Navigate on you terminal to the folder proyect
+3. Install all you need
 ```bash
 install all dependencies with dotnet
 ```
