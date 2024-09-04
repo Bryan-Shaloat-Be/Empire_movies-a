@@ -1,7 +1,7 @@
 
 # Empire Movies 
 
-Project created for viewing live movies with functions such as: Login, movie search and filters, detailed information about movies, space for favorites and more!
+Project created for viewing live movies with functions such as: Login, movie search and filters, detailed information about movies, space for favorites and more!.
 ## Authors
 
 - [Bryan Shaloat Be Barragan Pulido](https://github.com/Bryan-Shaloat-Be)
