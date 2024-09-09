@@ -17,7 +17,7 @@ We thought about the super basic requirements of an entertainment hub to give th
 
 ## Technical requirements
 
-The project was built with Angular, typescript, HTML5, CSS3 and nodejs.
+The project was built with Angular, typescript, HTML5, CSS3 and nodejs
 
 - [Angular -- version: 18.0.6](https://angular.dev/)
 - [Nodejs -- version: 20.14.6](https://nodejs.org/en)
