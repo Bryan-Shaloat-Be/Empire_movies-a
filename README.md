@@ -24,7 +24,7 @@ The project was built with Angular, typescript, HTML5, CSS3 and nodejs.
 - [Typescript -- version: 5.4.5](https://www.typescriptlang.org/)
 - [Rxjs -- version: 7.8.1](https://rxjs.dev/)
 
-External libraries
+External libraries.
 
 - [Tailwind css -- version: 3.4.4](https://tailwindcss.com/)
 
